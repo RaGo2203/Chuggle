@@ -1,0 +1,31 @@
+Chuggle/main.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background: #f5f5f5;
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-panels {
+    display: flex;
+    height: 70vh;
+}
+
+.panel {
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.left-panel, .right-panel {
+    width: 25%;
+    background: #e0e0e0;
+}
+
+.center-panel {
+    width: 50%;
+    background: #ffffff;
+}
