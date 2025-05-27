@@ -10,14 +10,12 @@
 </head>
 <body>
     <header>
-        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1rem;">
-            <div style="flex: 0 0 auto;">
-                <div style="width:40px; height:40px; border-radius:50%; background:#ccc; display:inline-block;"></div>
+        <div class="header-content">
+            <div class="logo-placeholder"></div>
+            <div class="search-bar-container">
+                <input type="text" placeholder="Search..." class="search-bar">
             </div>
-            <div style="flex: 1 1 auto; display: flex; justify-content: center;">
-                <input type="text" placeholder="Search..." style="width: 60%; padding: 0.5rem; border-radius: 20px; border: 1px solid #ccc;">
-            </div>
-            <div style="flex: 0 0 40px;"></div>
+            <div class="header-spacer"></div>
         </div>
     </header>
     
@@ -31,40 +29,42 @@
                 <button>More</button>
             </nav>
         </section>
+
         <section class="panel center-panel">
             <p>Feed posts show up here</p>
         </section>
+        
         <section class="panel right-panel">
-                        <section class="recommendations">
-                <h3 style="color: #888; font-size: 1rem; margin: 1rem 0 0.5rem 0; letter-spacing: 1px;">SUGGESTIONS</h3>
-                <div class="recommendation-card" style="display: flex; align-items: center; background: #fff; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden;">
-                    <div style="position: relative; margin: 0.5rem;">
-                        <img src="https://via.placeholder.com/48" alt="User" style="width:48px; height:48px; border-radius:50%; border: 3px solid #4caf50;">
-                        <span style="position: absolute; top: 0; left: 0; background: #fff; color: #4caf50; font-size: 0.7rem; padding: 1px 6px; border-radius: 8px; font-weight: bold;">Free</span>
+            <section class="recommendations">
+                <h3 class="suggestions-title">SUGGESTIONS</h3>
+                <div class="recommendation-card green-border">
+                    <div class="recommendation-img-container">
+                        <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
+                        <span class="recommendation-badge green-text">Free</span>
                     </div>
-                    <div style="flex:1; min-width:0;">
-                        <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Cherry 🍒 (#1 MELON...)</div>
-                        <div style="color: #888; font-size: 0.9em;">@cherryygumm</div>
-                    </div>
-                </div>
-                <div class="recommendation-card" style="display: flex; align-items: center; background: #fff; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden;">
-                    <div style="position: relative; margin: 0.5rem;">
-                        <img src="https://via.placeholder.com/48" alt="User" style="width:48px; height:48px; border-radius:50%; border: 3px solid #888;">
-                        <span style="position: absolute; top: 0; left: 0; background: #fff; color: #888; font-size: 0.7rem; padding: 1px 6px; border-radius: 8px; font-weight: bold;">Free</span>
-                    </div>
-                    <div style="flex:1; min-width:0;">
-                        <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Hot-Tatty 🔥</div>
-                        <div style="color: #888; font-size: 0.9em;">@hot-tatty</div>
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">Cherry</div>
+                        <div class="recommendation-handle">@cherryygumm</div>
                     </div>
                 </div>
-                <div class="recommendation-card" style="display: flex; align-items: center; background: #fff; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden;">
-                    <div style="position: relative; margin: 0.5rem;">
-                        <img src="https://via.placeholder.com/48" alt="User" style="width:48px; height:48px; border-radius:50%; border: 3px solid #e91e63;">
-                        <span style="position: absolute; top: 0; left: 0; background: #fff; color: #e91e63; font-size: 0.7rem; padding: 1px 6px; border-radius: 8px; font-weight: bold;">Free</span>
+                <div class="recommendation-card gray-border">
+                    <div class="recommendation-img-container">
+                        <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
+                        <span class="recommendation-badge gray-text">Free</span>
                     </div>
-                    <div style="flex:1; min-width:0;">
-                        <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">🌺Gracey</div>
-                        <div style="color: #888; font-size: 0.9em;">@houseofgracey</div>
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">stussy</div>
+                        <div class="recommendation-handle">@stussy</div>
+                    </div>
+                </div>
+                <div class="recommendation-card pink-border">
+                    <div class="recommendation-img-container">
+                        <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
+                        <span class="recommendation-badge pink-text">Free</span>
+                    </div>
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">Gracey</div>
+                        <div class="recommendation-handle">@houseofgracey</div>
                     </div>
                 </div>
             </section>
