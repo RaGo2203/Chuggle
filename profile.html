@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main class="main-panels">
+        <!-- Left Navigation -->
+        <section class="panel left-panel">
+            <nav class="side-nav">
+                <button><i class="fa-solid fa-house"></i> Home</button>
+                <button><i class="fa-regular fa-bell"></i> Notifications</button>
+                <button><i class="fa-regular fa-envelope"></i> Messages</button>
+                <button class="active"><i class="fa-regular fa-user"></i> Profile</button>
+                <button><i class="fa-solid fa-ellipsis"></i> More</button>
+                <button class="post-btn"><i class="fa-solid fa-feather"></i> Post</button>
+            </nav>
+            <div class="side-profile">
+                <img src="https://via.placeholder.com/36" alt="User" class="side-profile-avatar">
+                <div>
+                    <div class="side-profile-name">Rahul Goyal</div>
+                    <div class="side-profile-handle">@Ra_Go__</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Profile Content -->
+        <section class="panel center-panel">
+            <div class="profile-header">
+                <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                <div>
+                    <div class="profile-header-name">Rahul Goyal</div>
+                    <div class="profile-header-posts">202 posts</div>
+                </div>
+            </div>
+            <div class="profile-banner">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=cover&w=800&q=80" alt="Banner">
+                <img src="https://via.placeholder.com/120" alt="Avatar" class="profile-avatar">
+            </div>
+            <div class="profile-details">
+                <div class="profile-details-main">
+                    <div>
+                        <div class="profile-name">Rahul Goyal</div>
+                        <div class="profile-handle">@Ra_Go__</div>
+                    </div>
+                    <button class="edit-profile-btn">Edit profile</button>
+                </div>
+                <div class="profile-bio">
+                    Reader, Writer, Photographer, Engineer – an Aspiring Entrepreneur. I share anything that I find worth sharing.
+                </div>
+                <div class="profile-meta">
+                    <span><i class="fa-solid fa-location-dot"></i> Berlin, Germany</span>
+                    <span><i class="fa-regular fa-calendar"></i> Born March 22, 1996</span>
+                    <span><i class="fa-regular fa-clock"></i> Joined March 2016</span>
+                </div>
+                <div class="profile-stats">
+                    <span><strong>0</strong> Following</span>
+                    <span><strong>39</strong> Followers</span>
+                </div>
+            </div>
+            <div class="profile-feed">
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <div>
+                            <span class="feed-post-username">Rahul Goyal</span>
+                            <span class="feed-post-handle">@Ra_Go__ · Mar 5, 2019</span>
+                        </div>
+                    </div>
+                    <div class="feed-post-content">
+                        My photo of the event today. <span class="feed-post-tag">#knipsomat</span>
+                    </div>
+                    <div class="feed-post-image">
+                        <img src="https://via.placeholder.com/500x200/8bc34a/fff?text=Welcome+Week+March+2019" alt="Post image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel -->
+        <section class="panel right-panel">
+            <div class="right-search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <section class="recommendations">
+                <div class="suggestions-title">You might like</div>
+                <div class="recommendation-card">
+                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">T User</div>
+                        <div class="recommendation-handle">@tuser</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                <div class="recommendation-card">
+                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">P User</div>
+                        <div class="recommendation-handle">@puser</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                <div class="recommendation-card">
+                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">L User</div>
+                        <div class="recommendation-handle">@luser</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                <a href="#" class="show-more">Show more</a>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
