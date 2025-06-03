@@ -1,15 +1,30 @@
+<!--
+    main.html
+    ---------
+    This is the main feed page for the Chuggle web app.
+    It displays a header with a logo and search bar, a three-panel layout (left navigation, center feed, right recommendations),
+    and a footer. The center panel allows users to create posts and view the main feed.
+    Styles are loaded from main.css and Font Awesome icons are used for UI elements.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Meta and title for responsive design and page info -->
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Main feed-specific styles and icon library -->
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src='main.js'></script>
 </head>
 <body>
+    <!--
+        Header:
+        Contains logo placeholder, search bar, and spacer for alignment.
+    -->
     <header>
         <div class="header-content">
             <div class="logo-placeholder"></div>
@@ -21,7 +36,10 @@
     </header>
     
     <main class="main-panels">
-        
+        <!--
+            Left Navigation Panel:
+            Contains navigation buttons for Home, Notifications, Messages, Profile, and More.
+        -->
         <section class="panel left-panel">
             <nav class="side-nav">
                 <a href="main.html"><button>Home</button></a>
@@ -32,85 +50,95 @@
             </nav>
         </section>
 
+        <!--
+            Center Panel:
+            Contains the "Create Post" section and the main feed of posts.
+        -->
         <section class="panel center-panel">
-                <!-- Create Post Section -->
-                <section class="create-post">
-                    <div class="create-post-top">
-                        <img src="https://via.placeholder.com/40" alt="User" class="create-post-avatar">
-                        <textarea class="create-post-text" placeholder="What's happening?"></textarea>
-                    </div>
-                    <div class="create-post-actions">
-                        <input type="file" id="post-image" class="create-post-image-input" accept="image/*" style="display:none;">
-                        <label for="post-image" class="create-post-image-label">📷</label>
-                        <button class="create-post-btn">Post</button>
-                    </div>
-                </section>
-            
-                <!-- Feed Section -->
-                <section class="feed">
-                    <div class="feed-post">
-                        <div class="feed-post-header">
-                            <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
-                            <div>
-                                <span class="feed-post-username">Alice</span>
-                                <span class="feed-post-handle">@alice · 2h</span>
-                            </div>
-                        </div>
-                        <div class="feed-post-content">
-                            Starship can reach Mars in 6 months every 26 months when the planets align
-                        </div>
-                        <div class="feed-post-image">
-                            <img src="https://via.placeholder.com/350x180" alt="Post image">
-                        </div>
-                        <div class="feed-post-actions">
-                            <span>💬 11K</span>
-                            <span>❤️ 188K</span>
+            <!-- Create Post Section -->
+            <section class="create-post">
+                <div class="create-post-top">
+                    <img src="https://via.placeholder.com/40" alt="User" class="create-post-avatar">
+                    <textarea class="create-post-text" placeholder="What's happening?"></textarea>
+                </div>
+                <div class="create-post-actions">
+                    <input type="file" id="post-image" class="create-post-image-input" accept="image/*" style="display:none;">
+                    <label for="post-image" class="create-post-image-label">📷</label>
+                    <button class="create-post-btn">Post</button>
+                </div>
+            </section>
+        
+            <!-- Feed Section: List of posts -->
+            <section class="feed">
+                <!-- Example feed posts -->
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <div>
+                            <span class="feed-post-username">Alice</span>
+                            <span class="feed-post-handle">@alice · 2h</span>
                         </div>
                     </div>
-                    <div class="feed-post">
-                        <div class="feed-post-header">
-                            <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
-                            <div>
-                                <span class="feed-post-username">Bob</span>
-                                <span class="feed-post-handle">@bob · 1h</span>
-                            </div>
-                        </div>
-                        <div class="feed-post-content">
-                            Wow
-                        </div>
-                        <div class="feed-post-image">
-                            <img src="https://via.placeholder.com/350x180/1976d2/ffffff?text=ripple" alt="Post image">
-                        </div>
-                        <div class="feed-post-actions">
-                            <span>💬 1</span>
-                            <span>❤️ 48</span>
+                    <div class="feed-post-content">
+                        Starship can reach Mars in 6 months every 26 months when the planets align
+                    </div>
+                    <div class="feed-post-image">
+                        <img src="https://via.placeholder.com/350x180" alt="Post image">
+                    </div>
+                    <div class="feed-post-actions">
+                        <span>💬 11K</span>
+                        <span>❤️ 188K</span>
+                    </div>
+                </div>
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <div>
+                            <span class="feed-post-username">Bob</span>
+                            <span class="feed-post-handle">@bob · 1h</span>
                         </div>
                     </div>
-                    <div class="feed-post">
-                        <div class="feed-post-header">
-                            <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
-                            <div>
-                                <span class="feed-post-username">Charlie</span>
-                                <span class="feed-post-handle">@charlie · 4h</span>
-                            </div>
-                        </div>
-                        <div class="feed-post-content">
-                            Buttons &gt;&gt; gestures<br>Prove me wrong.
-                        </div>
-                        <div class="feed-post-image">
-                            <img src="https://via.placeholder.com/350x180/222/fff?text=Buttons+vs+Gestures" alt="Post image">
-                        </div>
-                        <div class="feed-post-actions">
-                            <span>💬 70</span>
-                            <span>❤️ 132</span>
+                    <div class="feed-post-content">
+                        Wow
+                    </div>
+                    <div class="feed-post-image">
+                        <img src="https://via.placeholder.com/350x180/1976d2/ffffff?text=ripple" alt="Post image">
+                    </div>
+                    <div class="feed-post-actions">
+                        <span>💬 1</span>
+                        <span>❤️ 48</span>
+                    </div>
+                </div>
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <div>
+                            <span class="feed-post-username">Charlie</span>
+                            <span class="feed-post-handle">@charlie · 4h</span>
                         </div>
                     </div>
-                </section>
+                    <div class="feed-post-content">
+                        Buttons &gt;&gt; gestures<br>Prove me wrong.
+                    </div>
+                    <div class="feed-post-image">
+                        <img src="https://via.placeholder.com/350x180/222/fff?text=Buttons+vs+Gestures" alt="Post image">
+                    </div>
+                    <div class="feed-post-actions">
+                        <span>💬 70</span>
+                        <span>❤️ 132</span>
+                    </div>
+                </div>
+            </section>
         </section>
         
+        <!--
+            Right Panel:
+            Contains user recommendations ("SUGGESTIONS") with colored badges.
+        -->
         <section class="panel right-panel">
             <section class="recommendations">
                 <h3 class="suggestions-title">SUGGESTIONS</h3>
+                <!-- Recommendation cards with colored borders and badges -->
                 <div class="recommendation-card green-border">
                     <div class="recommendation-img-container">
                         <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
@@ -145,6 +173,10 @@
         </section>
     </main>
     
+    <!--
+        Footer:
+        Contains copyright and links.
+    -->
     <footer class="footer">
         <div class="footer-content">
             <span>© 2023 Your Company</span>

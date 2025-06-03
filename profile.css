@@ -1,3 +1,13 @@
+/*
+    profile.css
+    -----------
+    Stylesheet for profile.html.
+    Defines the layout and appearance of the profile page, including the three main panels (left, center, right),
+    navigation, profile details, feed posts, and recommendations.
+    Uses modern CSS (flexbox, custom colors, responsive design).
+*/
+
+/* Base styles for body and layout */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
@@ -5,6 +15,7 @@ body {
     color: #0f1419;
 }
 
+/* Main layout: three panels (left, center, right) */
 .main-panels {
     display: flex;
     max-width: 1200px;
@@ -12,11 +23,13 @@ body {
     min-height: 100vh;
 }
 
+/* Panel base styles */
 .panel {
     box-sizing: border-box;
     background: none;
 }
 
+/* Left navigation panel styles */
 .left-panel {
     width: 22%;
     min-width: 200px;
@@ -29,6 +42,7 @@ body {
     position: relative;
 }
 
+/* Navigation menu styles */
 .side-nav {
     display: flex;
     flex-direction: column;
@@ -38,6 +52,7 @@ body {
 }
 
 .side-nav button {
+    /* Navigation button appearance */
     padding: 0.9rem 2rem 0.9rem 1.2rem;
     border: none;
     background: none;
@@ -55,6 +70,7 @@ body {
     cursor: pointer;
 }
 
+/* Navigation button hover and active states */
 .side-nav button:hover,
 .side-nav button:focus {
     background: #e8f5fe;
@@ -67,6 +83,7 @@ body {
     color: #fff;
 }
 
+/* Special styling for the "Post" button */
 .post-btn {
     background: #0f1419 !important;
     color: #fff !important;
@@ -89,6 +106,7 @@ body {
     color: #fff !important;
 }
 
+/* Icon styles for navigation */
 .side-nav i {
     font-size: 1.3em;
     margin-right: 1.1em;
@@ -96,6 +114,7 @@ body {
     text-align: center;
 }
 
+/* Compact user profile at the bottom of the left panel */
 .side-profile {
     display: flex;
     align-items: center;
@@ -121,6 +140,7 @@ body {
     font-size: 0.95em;
 }
 
+/* Center panel: main profile content */
 .center-panel {
     width: 56%;
     min-width: 350px;
@@ -131,6 +151,7 @@ body {
     padding-bottom: 2rem;
 }
 
+/* Profile header (name, posts, back button) */
 .profile-header {
     display: flex;
     align-items: center;
@@ -167,6 +188,7 @@ body {
     font-size: 0.95em;
 }
 
+/* Banner and avatar styles */
 .profile-banner {
     position: relative;
     width: 100%;
@@ -195,6 +217,7 @@ body {
     z-index: 2;
 }
 
+/* Profile details section */
 .profile-details {
     padding: 4.5rem 1.5rem 1.5rem 1.5rem;
     background: #fff;
@@ -264,6 +287,7 @@ body {
     color: #0f1419;
 }
 
+/* User's posts/feed styles */
 .profile-feed {
     margin-top: 1.5rem;
 }
@@ -316,6 +340,7 @@ body {
     border: 1px solid #e6ecf0;
 }
 
+/* Right panel: search and recommendations */
 .right-panel {
     width: 22%;
     min-width: 250px;
@@ -349,6 +374,7 @@ body {
     background: #fff;
 }
 
+/* Recommendation cards */
 .recommendations {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,13 @@
-/* Reset and base styles */
+/*
+    main.css
+    --------
+    Stylesheet for main.html.
+    Defines the layout and appearance of the main feed page, including header, three main panels (left, center, right),
+    navigation, post creation, feed posts, recommendations, and footer.
+    Uses modern CSS (flexbox, custom colors, responsive design).
+*/
+
+/* Base styles for body and layout */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
@@ -6,6 +15,7 @@ body {
     color: #0f1419;
 }
 
+/* Header styles */
 header {
     background: #fff;
     border-bottom: 1px solid #e6ecf0;
@@ -55,6 +65,7 @@ header {
     flex: 0 0 40px;
 }
 
+/* Footer styles */
 footer {
     background: #fff;
     border-top: 1px solid #e6ecf0;
@@ -72,6 +83,7 @@ footer {
     padding: 0 1rem;
 }
 
+/* Main layout: three panels (left, center, right) */
 .main-panels {
     display: flex;
     min-height: 80vh;
@@ -86,6 +98,7 @@ footer {
     background: none;
 }
 
+/* Left navigation panel styles */
 .left-panel {
     width: 22%;
     min-width: 200px;
@@ -97,6 +110,7 @@ footer {
     padding-top: 1.5rem;
 }
 
+/* Center panel: main feed content */
 .center-panel {
     width: 56%;
     min-width: 350px;
@@ -107,6 +121,7 @@ footer {
     padding-bottom: 2rem;
 }
 
+/* Right panel: recommendations */
 .right-panel {
     width: 22%;
     min-width: 250px;
@@ -117,6 +132,7 @@ footer {
     align-items: flex-start;
 }
 
+/* Navigation menu styles */
 .side-nav {
     display: flex;
     flex-direction: column;
@@ -158,6 +174,7 @@ footer {
     margin-bottom: 0;
 }
 
+/* Create Post section styles */
 .create-post {
     background: #fff;
     border-bottom: 1px solid #e6ecf0;
@@ -225,6 +242,7 @@ footer {
     color: #fff;
 }
 
+/* Feed post styles */
 .feed {
     display: flex;
     flex-direction: column;
@@ -283,6 +301,7 @@ footer {
     margin-top: 0.5rem;
 }
 
+/* Recommendation cards */
 .recommendations {
     display: flex;
     flex-direction: column;
@@ -314,6 +333,7 @@ footer {
     border: 1px solid #e6ecf0;
 }
 
+/* Recommendation card image and badge styles */
 .recommendation-img-container {
     position: relative;
     margin-right: 0.8rem;
@@ -327,6 +347,7 @@ footer {
     background: #f7f9fa;
 }
 
+/* Colored borders for different recommendation types */
 .green-border .recommendation-img {
     border-color: #4caf50;
 }
@@ -337,6 +358,7 @@ footer {
     border-color: #e91e63;
 }
 
+/* Badge styles */
 .recommendation-badge {
     position: absolute;
     top: -7px;
