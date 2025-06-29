@@ -23,11 +23,11 @@ header {
     background: var(--bg-primary);
     border-bottom: 1px solid var(--border-primary);
     padding: 0;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     width: 56%;
-    margin-left: 22%;
+    left: 22%;
 }
 
 .header-content {
@@ -623,7 +623,7 @@ footer {
     
     header {
         width: 60%;
-        margin-left: 20%;
+        left: 20%;
     }
 }
 
@@ -637,6 +637,7 @@ footer {
         width: 100%;
         min-width: auto;
         position: static;
+        height: auto;
     }
     
     .center-panel {
@@ -647,7 +648,7 @@ footer {
     
     header {
         width: 100%;
-        margin-left: 0;
+        left: 0;
         position: relative;
     }
     
