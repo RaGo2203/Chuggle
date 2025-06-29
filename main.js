@@ -6,16 +6,6 @@
     Provides interactive behavior for the main social media interface with theme support.
 */
 
-// Import theme system
-if (typeof window !== 'undefined') {
-    // Load theme script if not already loaded
-    if (!window.ChuggleTheme) {
-        const script = document.createElement('script');
-        script.src = 'theme.js';
-        document.head.appendChild(script);
-    }
-}
-
 // DOM elements
 let createPostText;
 let createPostBtn;
@@ -304,14 +294,6 @@ function handlePostMenu(button) {
 
 // Setup navigation interactions
 function setupNavigationInteractions() {
-    // Handle post button click
-    const postBtn = document.querySelector('.post-btn');
-    if (postBtn) {
-        postBtn.addEventListener('click', () => {
-            createPostText.focus();
-        });
-    }
-
     // Handle follow buttons
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('follow-btn')) {
@@ -335,7 +317,7 @@ function handleFollowUser(button) {
 
 // Setup search functionality
 function setupSearchFunctionality() {
-    const searchBars = document.querySelectorAll('.search-bar, .right-search-bar input');
+    const searchBars = document.querySelectorAll('.center-search-bar');
     
     searchBars.forEach(searchBar => {
         searchBar.addEventListener('keydown', (e) => {
