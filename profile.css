@@ -32,7 +32,7 @@ body {
     background: none;
 }
 
-/* Left navigation panel styles */
+/* Left navigation panel styles - extends to top */
 .left-panel {
     width: 22%;
     min-width: 200px;
@@ -93,29 +93,6 @@ body {
 .side-nav button.active {
     background: var(--accent-primary);
     color: var(--text-inverse);
-}
-
-/* Special styling for the "Post" button */
-.post-btn {
-    background: var(--accent-secondary) !important;
-    color: var(--text-inverse) !important;
-    font-weight: 700 !important;
-    margin-top: 1.5rem;
-    width: 90%;
-    padding: 1rem 0 !important;
-    border-radius: 999px !important;
-    font-size: 1.15rem !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.7rem;
-    box-shadow: 0 1px 4px var(--shadow-light);
-}
-
-.post-btn:hover,
-.post-btn:focus {
-    background: var(--accent-primary) !important;
-    color: var(--text-inverse) !important;
 }
 
 /* Icon styles for navigation */
@@ -530,11 +507,11 @@ body {
     transform: scale(1.02);
 }
 
-/* Right panel: search and recommendations */
+/* Right panel: search and recommendations - extends to top */
 .right-panel {
     width: 22%;
     min-width: 250px;
-    background: none;
+    background: var(--bg-primary);
     padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -543,34 +520,6 @@ body {
     position: sticky;
     top: 0;
     height: fit-content;
-}
-
-.right-search-bar {
-    width: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.right-search-bar input {
-    width: 90%;
-    padding: 0.7rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid var(--border-primary);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: border 0.2s, background 0.2s;
-}
-
-.right-search-bar input:focus {
-    outline: none;
-    border: 1.5px solid var(--accent-primary);
-    background: var(--bg-primary);
-}
-
-.right-search-bar input::placeholder {
-    color: var(--text-secondary);
 }
 
 /* Recommendation cards */
@@ -728,10 +677,6 @@ body {
         width: auto;
         padding: 0.5rem 1rem;
         font-size: 1rem;
-    }
-    
-    .post-btn {
-        display: none;
     }
     
     .side-profile {

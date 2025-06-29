@@ -25,6 +25,7 @@
     <!--
         Header:
         Contains logo placeholder, search bar, and spacer for alignment.
+        Now only spans the center panel width.
     -->
     <header>
         <div class="header-content">
@@ -40,6 +41,7 @@
         <!--
             Left Navigation Panel:
             Contains navigation buttons for Home, Notifications, Messages, Profile, and More.
+            Post button removed as requested.
         -->
         <section class="panel left-panel">
             <nav class="side-nav">
@@ -48,7 +50,6 @@
                 <a href="messages.html"><button><i class="fa-regular fa-envelope"></i> Messages</button></a>
                 <a href="profile.html"><button><i class="fa-regular fa-user"></i> Profile</button></a>
                 <button><i class="fa-solid fa-ellipsis"></i> More</button>
-                <button class="post-btn"><i class="fa-solid fa-feather"></i> Post</button>
             </nav>
             <!-- Compact user info at the bottom of the nav -->
             <div class="side-profile">
@@ -209,11 +210,9 @@
         <!--
             Right Panel:
             Contains user recommendations ("SUGGESTIONS") with colored badges.
+            Search bar removed as requested.
         -->
         <section class="panel right-panel">
-            <div class="right-search-bar">
-                <input type="text" placeholder="Search Chuggle">
-            </div>
             <section class="recommendations">
                 <h3 class="suggestions-title">What's happening</h3>
                 <div class="trending-card">

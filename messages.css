@@ -33,7 +33,7 @@ body {
     background: none;
 }
 
-/* Left navigation panel styles */
+/* Left navigation panel styles - extends to top */
 .left-panel {
     width: 22%;
     min-width: 200px;
@@ -94,29 +94,6 @@ body {
 .side-nav button.active {
     background: var(--accent-primary);
     color: var(--text-inverse);
-}
-
-/* Special styling for the "Post" button */
-.post-btn {
-    background: var(--accent-primary) !important;
-    color: var(--text-inverse) !important;
-    font-weight: 700 !important;
-    margin-top: 1.5rem;
-    width: 90%;
-    padding: 1rem 0 !important;
-    border-radius: 999px !important;
-    font-size: 1.15rem !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.7rem;
-    box-shadow: 0 1px 4px var(--shadow-medium);
-}
-
-.post-btn:hover,
-.post-btn:focus {
-    background: var(--accent-primary-hover) !important;
-    color: var(--text-inverse) !important;
 }
 
 /* Icon styles for navigation */
@@ -639,10 +616,6 @@ body {
         width: auto;
         padding: 0.5rem 1rem;
         font-size: 1rem;
-    }
-    
-    .post-btn {
-        display: none;
     }
     
     .side-profile {
