@@ -104,7 +104,7 @@ footer {
 
 .side-nav button:hover,
 .side-nav button:focus {
-    background: var(--bg-active);
+    background: var(--bg-hover);
     color: var(--accent-primary);
     outline: none;
 }
@@ -267,7 +267,7 @@ footer {
 .create-post-image-label:hover,
 .create-post-emoji-btn:hover,
 .create-post-poll-btn:hover {
-    background: var(--bg-active);
+    background: var(--bg-hover);
 }
 
 .create-post-submit {
@@ -358,7 +358,7 @@ footer {
 }
 
 .feed-post-menu:hover {
-    background: var(--bg-active);
+    background: var(--bg-hover);
     color: var(--accent-primary);
 }
 
