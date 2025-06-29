@@ -1,7 +1,7 @@
 /*
     messages.js
     -----------
-    JavaScript functionality for the messaging page.
+    JavaScript functionality for the messaging page with Twitter/X-like interface.
     Handles conversation switching, message sending, real-time updates, and user interactions.
     Provides dynamic behavior for the messaging interface including conversation management and message display.
 */
@@ -11,18 +11,22 @@ const conversationData = {
     alice: {
         name: "Alice Johnson",
         handle: "@alice",
-        avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
+        avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
         messages: [
-            { type: "received", text: "Hey! How's the project coming along?", time: "2:30 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "Going great! Just finished the main features. Want to see a demo?", time: "2:32 PM" },
-            { type: "received", text: "That sounds amazing! When do we start?", time: "2:35 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "How about tomorrow at 3 PM?", time: "2:36 PM" }
+            { type: "received", text: "Hey! How's the project coming along?", time: "Mar 30, 2018, 9:39 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Ok", time: "2:32 PM" },
+            { type: "received", text: "You still ok with small proof reads now and again bro", time: "Apr 3, 2018, 2:03 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Sure, but as I am a final year student, I may not be always available", time: "2:36 PM" },
+            { type: "sent", text: "Due to exams, projects, seminars and similar stuff", time: "Apr 3, 2018, 2:53 PM" },
+            { type: "sent", text: "Also, can you help me financially to help support my basic needs.", time: "2:56 PM" },
+            { type: "sent", text: "We can agree to some fixed amount per 500 or 1000 words", time: "Apr 3, 2018, 2:56 PM" },
+            { type: "received", text: "Ok for now I needed volunteers but thanks anyway", time: "Apr 3, 2018, 4:58 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" }
         ]
     },
     bob: {
         name: "Bob Smith",
         handle: "@bob",
-        avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
+        avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
         messages: [
             { type: "received", text: "Did you see the latest update on the project?", time: "Yesterday", avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Yes! The new features look incredible.", time: "Yesterday" },
@@ -33,7 +37,7 @@ const conversationData = {
     charlie: {
         name: "Charlie Brown",
         handle: "@charlie",
-        avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
+        avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
         messages: [
             { type: "received", text: "Hey there! How have you been?", time: "3 days ago", avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "I've been great! Working on some exciting projects.", time: "3 days ago" },
@@ -44,12 +48,32 @@ const conversationData = {
     diana: {
         name: "Diana Prince",
         handle: "@diana",
-        avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
+        avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
         messages: [
             { type: "received", text: "It was wonderful meeting you at the conference!", time: "1 week ago", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Likewise! Your presentation was fantastic.", time: "1 week ago" },
             { type: "received", text: "Great meeting you at the conference!", time: "1 week ago", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Thank you! Looking forward to collaborating.", time: "1 week ago" }
+        ]
+    },
+    samarth: {
+        name: "Samarth H.",
+        handle: "@samarth",
+        avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
+        messages: [
+            { type: "received", text: "Check out this funny prank video!", time: "Jun 5, 2018", avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "received", text: "x.com/Funniest_Prank...", time: "Jun 5, 2018", avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Haha, that's hilarious! Thanks for sharing.", time: "Jun 5, 2018" }
+        ]
+    },
+    ankur: {
+        name: "Ankur Jain",
+        handle: "@AnkurJTSL",
+        avatar: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
+        messages: [
+            { type: "received", text: "Hey, I have some confidential information to share", time: "Mar 30, 2018", avatar: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "received", text: "but don't tell about this to anand, please keep it between us", time: "Mar 30, 2018", avatar: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Sure, I'll keep it confidential. What's up?", time: "Mar 30, 2018" }
         ]
     }
 };
@@ -95,7 +119,9 @@ function setupEventListeners() {
     conversationItems.forEach(item => {
         item.addEventListener('click', () => {
             const userId = item.getAttribute('data-user');
-            switchConversation(userId);
+            if (userId) {
+                switchConversation(userId);
+            }
         });
     });
 
@@ -120,16 +146,21 @@ function setupEventListeners() {
         });
     }
 
-    // Message buttons in recommendations
-    const messageBtns = document.querySelectorAll('.message-btn');
-    messageBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const card = btn.closest('.recommendation-card');
-            const userName = card.querySelector('.recommendation-name').textContent;
-            showNotification(`Starting conversation with ${userName}...`);
+    // Settings button
+    const settingsBtn = document.querySelector('.settings-btn');
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', () => {
+            showNotification('Settings panel would open here');
         });
-    });
+    }
+
+    // Message requests
+    const messageRequests = document.querySelector('.message-requests');
+    if (messageRequests) {
+        messageRequests.addEventListener('click', () => {
+            showNotification('Message requests would be shown here');
+        });
+    }
 
     // Auto-resize message input
     if (messageInput) {
@@ -290,7 +321,7 @@ function simulateResponse() {
             type: 'received',
             text: randomResponse,
             time: getCurrentTime(),
-            avatar: conversation.avatar.replace('w=40&h=40', 'w=32&h=32')
+            avatar: conversation.avatar
         };
 
         // Add to conversation data
@@ -328,13 +359,13 @@ function showNotification(message) {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: #1da1f2;
+        background: #1d9bf0;
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;
         z-index: 1000;
         font-weight: 500;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         transform: translateX(100%);
         transition: transform 0.3s ease;
     `;
@@ -358,25 +389,6 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Handle typing indicators (placeholder for future implementation)
-function showTypingIndicator(userId) {
-    // Implementation for showing "User is typing..." indicator
-}
-
-function hideTypingIndicator(userId) {
-    // Implementation for hiding typing indicator
-}
-
-// Handle online status (placeholder for future implementation)
-function updateOnlineStatus(userId, isOnline) {
-    // Implementation for showing online/offline status
-}
-
-// Search functionality (placeholder for future implementation)
-function searchMessages(query) {
-    // Implementation for searching through messages
-}
-
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeMessaging);
 
@@ -385,7 +397,5 @@ window.ChuggleMessaging = {
     switchConversation,
     sendMessage,
     loadConversation,
-    updateOnlineStatus,
-    searchMessages,
     showNotification
 };
