@@ -2,7 +2,7 @@
     main.css
     --------
     Stylesheet for main.html.
-    Defines the layout and appearance of the main feed page, including header, three main panels (left, center, right),
+    Defines the layout and appearance of the main feed page, including three main panels (left, center, right),
     navigation, post creation, feed posts, recommendations, and footer.
     Uses modern CSS (flexbox, custom colors, responsive design) with automatic theme switching.
 */
@@ -15,23 +15,6 @@ body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
     background: var(--bg-secondary);
-    color: var(--text-primary);
-}
-
-/* Header styles - only spans center panel */
-.header {
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-primary);
-    padding: 1rem 1.5rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.header-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin: 0;
     color: var(--text-primary);
 }
 
@@ -183,7 +166,7 @@ footer {
     border-bottom: 1px solid var(--border-primary);
     padding: 1.2rem 1.5rem 1rem 1.5rem;
     position: sticky;
-    top: 80px;
+    top: 0;
     z-index: 10;
 }
 
@@ -578,10 +561,6 @@ footer {
     .center-panel {
         width: 100%;
         min-width: auto;
-    }
-    
-    .header {
-        position: relative;
     }
     
     .create-post {

@@ -2,7 +2,7 @@
     main.html
     ---------
     This is the main feed page for the Chuggle web app.
-    It displays a header with a logo and search bar, a three-panel layout (left navigation, center feed, right recommendations),
+    It displays a three-panel layout (left navigation, center feed, right recommendations),
     and a footer. The center panel allows users to create posts and view the main feed.
     Styles are loaded from main.css and Font Awesome icons are used for UI elements.
     Features automatic light/dark theme switching based on user's browser/OS preference.
@@ -26,7 +26,6 @@
         <!--
             Left Navigation Panel:
             Contains navigation buttons for Home, Notifications, Messages, Profile, and More.
-            Post button removed as requested.
         -->
         <section class="panel left-panel">
             <nav class="side-nav">
@@ -51,11 +50,6 @@
             Contains the "Create Post" section and the main feed of posts.
         -->
         <section class="panel center-panel">
-            <!-- Header -->
-            <div class="header">
-                <h1 class="header-title">Home</h1>
-            </div>
-            
             <!-- Create Post Section -->
             <section class="create-post">
                 <div class="create-post-top">
@@ -200,7 +194,6 @@
         <!--
             Right Panel:
             Contains user recommendations ("SUGGESTIONS") with colored badges.
-            Search bar removed as requested.
         -->
         <section class="panel right-panel">
             <section class="recommendations">
