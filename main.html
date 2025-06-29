@@ -8,17 +8,17 @@
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <!-- Meta and title for responsive design and page info -->
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Chuggle - Home</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- Main feed-specific styles and icon library -->
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src='main.js'></script>
+    <script src='main.js' defer></script>
 </head>
 <body>
     <!--
@@ -29,7 +29,7 @@
         <div class="header-content">
             <div class="logo-placeholder"></div>
             <div class="search-bar-container">
-                <input type="text" placeholder="Search..." class="search-bar">
+                <input type="text" placeholder="Search Chuggle..." class="search-bar">
             </div>
             <div class="header-spacer"></div>
         </div>
@@ -42,12 +42,21 @@
         -->
         <section class="panel left-panel">
             <nav class="side-nav">
-                <a href="main.html"><button>Home</button></a>
-                <button>Notifications</button>
-                <button>Messages</button>
-                <a href="profile.html"><button>Profile</button></a>
-                <button>More</button>
+                <a href="main.html"><button class="active"><i class="fa-solid fa-house"></i> Home</button></a>
+                <button><i class="fa-regular fa-bell"></i> Notifications</button>
+                <a href="messages.html"><button><i class="fa-regular fa-envelope"></i> Messages</button></a>
+                <a href="profile.html"><button><i class="fa-regular fa-user"></i> Profile</button></a>
+                <button><i class="fa-solid fa-ellipsis"></i> More</button>
+                <button class="post-btn"><i class="fa-solid fa-feather"></i> Post</button>
             </nav>
+            <!-- Compact user info at the bottom of the nav -->
+            <div class="side-profile">
+                <img src="https://via.placeholder.com/36" alt="User" class="side-profile-avatar">
+                <div>
+                    <div class="side-profile-name">Rahul Goyal</div>
+                    <div class="side-profile-handle">@Ra_Go__</div>
+                </div>
+            </div>
         </section>
 
         <!--
@@ -59,12 +68,25 @@
             <section class="create-post">
                 <div class="create-post-top">
                     <img src="https://via.placeholder.com/40" alt="User" class="create-post-avatar">
-                    <textarea class="create-post-text" placeholder="What's happening?"></textarea>
+                    <textarea class="create-post-text" placeholder="What's happening?" maxlength="280"></textarea>
                 </div>
                 <div class="create-post-actions">
-                    <input type="file" id="post-image" class="create-post-image-input" accept="image/*" style="display:none;">
-                    <label for="post-image" class="create-post-image-label">📷</label>
-                    <button class="create-post-btn">Post</button>
+                    <div class="create-post-options">
+                        <input type="file" id="post-image" class="create-post-image-input" accept="image/*" style="display:none;">
+                        <label for="post-image" class="create-post-image-label" title="Add photo">
+                            <i class="fa-regular fa-image"></i>
+                        </label>
+                        <button class="create-post-emoji-btn" title="Add emoji">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </button>
+                        <button class="create-post-poll-btn" title="Add poll">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </button>
+                    </div>
+                    <div class="create-post-submit">
+                        <span class="character-count">280</span>
+                        <button class="create-post-btn" disabled>Post</button>
+                    </div>
                 </div>
             </section>
         
@@ -73,59 +95,111 @@
                 <!-- Example feed posts -->
                 <div class="feed-post">
                     <div class="feed-post-header">
-                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Alice" class="feed-post-avatar">
                         <div>
-                            <span class="feed-post-username">Alice</span>
+                            <span class="feed-post-username">Alice Johnson</span>
                             <span class="feed-post-handle">@alice · 2h</span>
                         </div>
+                        <button class="feed-post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
                     </div>
                     <div class="feed-post-content">
-                        Starship can reach Mars in 6 months every 26 months when the planets align
+                        Starship can reach Mars in 6 months every 26 months when the planets align 🚀 The future of space exploration is here!
                     </div>
                     <div class="feed-post-image">
-                        <img src="https://via.placeholder.com/350x180" alt="Post image">
+                        <img src="https://images.pexels.com/photos/586063/pexels-photo-586063.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2" alt="Space exploration">
                     </div>
                     <div class="feed-post-actions">
-                        <span>💬 11K</span>
-                        <span>❤️ 188K</span>
+                        <button class="action-btn reply-btn">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>11K</span>
+                        </button>
+                        <button class="action-btn repost-btn">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>5.2K</span>
+                        </button>
+                        <button class="action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>188K</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
                     </div>
                 </div>
+                
                 <div class="feed-post">
                     <div class="feed-post-header">
-                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Bob" class="feed-post-avatar">
                         <div>
-                            <span class="feed-post-username">Bob</span>
+                            <span class="feed-post-username">Bob Smith</span>
                             <span class="feed-post-handle">@bob · 1h</span>
                         </div>
+                        <button class="feed-post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
                     </div>
                     <div class="feed-post-content">
-                        Wow
+                        Just discovered this amazing new framework! The developer experience is incredible 💻
+                        <br><br>
+                        #WebDev #JavaScript #React
                     </div>
                     <div class="feed-post-image">
-                        <img src="https://via.placeholder.com/350x180/1976d2/ffffff?text=ripple" alt="Post image">
+                        <img src="https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2" alt="Coding setup">
                     </div>
                     <div class="feed-post-actions">
-                        <span>💬 1</span>
-                        <span>❤️ 48</span>
+                        <button class="action-btn reply-btn">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>24</span>
+                        </button>
+                        <button class="action-btn repost-btn">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>12</span>
+                        </button>
+                        <button class="action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>148</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
                     </div>
                 </div>
+                
                 <div class="feed-post">
                     <div class="feed-post-header">
-                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Charlie" class="feed-post-avatar">
                         <div>
-                            <span class="feed-post-username">Charlie</span>
+                            <span class="feed-post-username">Charlie Brown</span>
                             <span class="feed-post-handle">@charlie · 4h</span>
                         </div>
+                        <button class="feed-post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
                     </div>
                     <div class="feed-post-content">
-                        Buttons &gt;&gt; gestures<br>Prove me wrong.
+                        Beautiful sunset from my evening walk today 🌅 Sometimes you need to step away from the screen and appreciate nature.
                     </div>
                     <div class="feed-post-image">
-                        <img src="https://via.placeholder.com/350x180/222/fff?text=Buttons+vs+Gestures" alt="Post image">
+                        <img src="https://images.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2" alt="Sunset sky">
                     </div>
                     <div class="feed-post-actions">
-                        <span>💬 70</span>
-                        <span>❤️ 132</span>
+                        <button class="action-btn reply-btn">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>8</span>
+                        </button>
+                        <button class="action-btn repost-btn">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>3</span>
+                        </button>
+                        <button class="action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>67</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -136,39 +210,57 @@
             Contains user recommendations ("SUGGESTIONS") with colored badges.
         -->
         <section class="panel right-panel">
+            <div class="right-search-bar">
+                <input type="text" placeholder="Search Chuggle">
+            </div>
             <section class="recommendations">
-                <h3 class="suggestions-title">SUGGESTIONS</h3>
+                <h3 class="suggestions-title">What's happening</h3>
+                <div class="trending-card">
+                    <div class="trending-category">Trending in Technology</div>
+                    <div class="trending-topic">#WebDevelopment</div>
+                    <div class="trending-posts">42.1K posts</div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-category">Trending</div>
+                    <div class="trending-topic">#SpaceX</div>
+                    <div class="trending-posts">28.5K posts</div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-category">Technology · Trending</div>
+                    <div class="trending-topic">JavaScript</div>
+                    <div class="trending-posts">15.2K posts</div>
+                </div>
+                <a href="#" class="show-more">Show more</a>
+            </section>
+            
+            <section class="recommendations">
+                <h3 class="suggestions-title">Who to follow</h3>
                 <!-- Recommendation cards with colored borders and badges -->
-                <div class="recommendation-card green-border">
-                    <div class="recommendation-img-container">
-                        <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
-                        <span class="recommendation-badge green-text">Free</span>
-                    </div>
+                <div class="recommendation-card">
+                    <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Cherry" class="recommendation-img">
                     <div class="recommendation-info">
-                        <div class="recommendation-name">Cherry</div>
+                        <div class="recommendation-name">Cherry Garcia</div>
                         <div class="recommendation-handle">@cherryygumm</div>
                     </div>
+                    <button class="follow-btn">Follow</button>
                 </div>
-                <div class="recommendation-card gray-border">
-                    <div class="recommendation-img-container">
-                        <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
-                        <span class="recommendation-badge gray-text">Free</span>
-                    </div>
+                <div class="recommendation-card">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Stussy" class="recommendation-img">
                     <div class="recommendation-info">
-                        <div class="recommendation-name">stussy</div>
+                        <div class="recommendation-name">Stussy Williams</div>
                         <div class="recommendation-handle">@stussy</div>
                     </div>
+                    <button class="follow-btn">Follow</button>
                 </div>
-                <div class="recommendation-card pink-border">
-                    <div class="recommendation-img-container">
-                        <img src="https://via.placeholder.com/48" alt="User" class="recommendation-img">
-                        <span class="recommendation-badge pink-text">Free</span>
-                    </div>
+                <div class="recommendation-card">
+                    <img src="https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Gracey" class="recommendation-img">
                     <div class="recommendation-info">
-                        <div class="recommendation-name">Gracey</div>
+                        <div class="recommendation-name">Grace Thompson</div>
                         <div class="recommendation-handle">@houseofgracey</div>
                     </div>
+                    <button class="follow-btn">Follow</button>
                 </div>
+                <a href="#" class="show-more">Show more</a>
             </section>
         </section>
     </main>
@@ -179,8 +271,9 @@
     -->
     <footer class="footer">
         <div class="footer-content">
-            <span>© 2023 Your Company</span>
-            <span>Privacy · Terms · Contact</span>
+            <span>© 2024 Chuggle</span>
+            <span>Privacy · Terms · Contact · About</span>
         </div>
+    </footer>
 </body>
 </html>

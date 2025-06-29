@@ -12,11 +12,12 @@
 <head>
     <!-- Meta and title for responsive design and page info -->
     <meta charset="UTF-8">
-    <title>User Profile</title>
+    <title>Rahul Goyal (@Ra_Go__) - Chuggle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Profile-specific styles and icon library -->
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="profile.js" defer></script>
 </head>
 <body>
     <main class="main-panels">
@@ -30,14 +31,14 @@
                 <!-- Navigation links/buttons -->
                 <a href="main.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
                 <button><i class="fa-regular fa-bell"></i> Notifications</button>
-                <button><i class="fa-regular fa-envelope"></i> Messages</button>
+                <a href="messages.html"><button><i class="fa-regular fa-envelope"></i> Messages</button></a>
                 <a href="profile.html"><button class="active"><i class="fa-regular fa-user"></i> Profile</button></a>
                 <button><i class="fa-solid fa-ellipsis"></i> More</button>
                 <button class="post-btn"><i class="fa-solid fa-feather"></i> Post</button>
             </nav>
             <!-- Compact user info at the bottom of the nav -->
             <div class="side-profile">
-                <img src="https://via.placeholder.com/36" alt="User" class="side-profile-avatar">
+                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=36&h=36&dpr=2" alt="User" class="side-profile-avatar">
                 <div>
                     <div class="side-profile-name">Rahul Goyal</div>
                     <div class="side-profile-handle">@Ra_Go__</div>
@@ -51,15 +52,15 @@
         -->
         <section class="panel center-panel">
             <div class="profile-header">
-                <button class="back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="back-btn" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
                 <div>
                     <div class="profile-header-name">Rahul Goyal</div>
                     <div class="profile-header-posts">202 posts</div>
                 </div>
             </div>
             <div class="profile-banner">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=cover&w=800&q=80" alt="Banner">
-                <img src="https://via.placeholder.com/120" alt="Avatar" class="profile-avatar">
+                <img src="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=800&h=220&dpr=2" alt="Profile Banner">
+                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=2" alt="Profile Avatar" class="profile-avatar">
             </div>
             <div class="profile-details">
                 <div class="profile-details-main">
@@ -70,34 +71,165 @@
                     <button class="edit-profile-btn">Edit profile</button>
                 </div>
                 <div class="profile-bio">
-                    Reader, Writer, Photographer, Engineer – an Aspiring Entrepreneur. I share anything that I find worth sharing.
+                    Reader, Writer, Photographer, Engineer – an Aspiring Entrepreneur. I share anything that I find worth sharing. 📚✍️📸💻
                 </div>
                 <div class="profile-meta">
                     <span><i class="fa-solid fa-location-dot"></i> Berlin, Germany</span>
-                    <span><i class="fa-regular fa-calendar"></i> Born March 22, 1996</span>
-                    <span><i class="fa-regular fa-clock"></i> Joined March 2016</span>
+                    <span><i class="fa-solid fa-link"></i> <a href="https://rahulgoyal.dev" target="_blank">rahulgoyal.dev</a></span>
+                    <span><i class="fa-regular fa-calendar"></i> Joined March 2016</span>
                 </div>
                 <div class="profile-stats">
-                    <span><strong>0</strong> Following</span>
-                    <span><strong>39</strong> Followers</span>
+                    <span><strong>127</strong> Following</span>
+                    <span><strong>1,439</strong> Followers</span>
                 </div>
             </div>
+            
+            <!-- Profile Navigation Tabs -->
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="posts">Posts</button>
+                <button class="profile-tab" data-tab="replies">Replies</button>
+                <button class="profile-tab" data-tab="media">Media</button>
+                <button class="profile-tab" data-tab="likes">Likes</button>
+            </div>
+            
             <!-- User's posts/feed -->
-            <div class="profile-feed">
+            <div class="profile-feed" id="postsTab">
                 <div class="feed-post">
                     <div class="feed-post-header">
-                        <img src="https://via.placeholder.com/40" alt="User" class="feed-post-avatar">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Rahul" class="feed-post-avatar">
                         <div>
                             <span class="feed-post-username">Rahul Goyal</span>
-                            <span class="feed-post-handle">@Ra_Go__ · Mar 5, 2019</span>
+                            <span class="feed-post-handle">@Ra_Go__ · Mar 15</span>
                         </div>
+                        <button class="feed-post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
                     </div>
                     <div class="feed-post-content">
-                        My photo of the event today. <span class="feed-post-tag">#knipsomat</span>
+                        Just finished reading "The Pragmatic Programmer" - such an insightful book for anyone in tech! The principles are timeless and applicable beyond just programming. 📚
+                        <br><br>
+                        What's your favorite tech book? Drop recommendations below! 👇
+                        <br><br>
+                        <span class="feed-post-tag">#TechBooks #Programming #Learning</span>
+                    </div>
+                    <div class="feed-post-actions">
+                        <button class="action-btn reply-btn">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>12</span>
+                        </button>
+                        <button class="action-btn repost-btn">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>3</span>
+                        </button>
+                        <button class="action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>45</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Rahul" class="feed-post-avatar">
+                        <div>
+                            <span class="feed-post-username">Rahul Goyal</span>
+                            <span class="feed-post-handle">@Ra_Go__ · Mar 10</span>
+                        </div>
+                        <button class="feed-post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+                    </div>
+                    <div class="feed-post-content">
+                        Berlin's startup scene is absolutely thriving! 🚀 Just attended an amazing meetup where entrepreneurs shared their journey from idea to IPO.
+                        <br><br>
+                        The energy and innovation here is infectious. Grateful to be part of this ecosystem.
                     </div>
                     <div class="feed-post-image">
-                        <img src="https://via.placeholder.com/500x200/8bc34a/fff?text=Welcome+Week+March+2019" alt="Post image">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2" alt="Berlin startup meetup">
                     </div>
+                    <div class="feed-post-actions">
+                        <button class="action-btn reply-btn">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>8</span>
+                        </button>
+                        <button class="action-btn repost-btn">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>15</span>
+                        </button>
+                        <button class="action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>67</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="feed-post">
+                    <div class="feed-post-header">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Rahul" class="feed-post-avatar">
+                        <div>
+                            <span class="feed-post-username">Rahul Goyal</span>
+                            <span class="feed-post-handle">@Ra_Go__ · Mar 5</span>
+                        </div>
+                        <button class="feed-post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+                    </div>
+                    <div class="feed-post-content">
+                        Captured this beautiful sunset during my evening photography walk. Sometimes the best moments happen when you least expect them. 📸✨
+                        <br><br>
+                        <span class="feed-post-tag">#Photography #Berlin #Sunset #NaturePhotography</span>
+                    </div>
+                    <div class="feed-post-image">
+                        <img src="https://images.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2" alt="Beautiful sunset">
+                    </div>
+                    <div class="feed-post-actions">
+                        <button class="action-btn reply-btn">
+                            <i class="fa-regular fa-comment"></i>
+                            <span>23</span>
+                        </button>
+                        <button class="action-btn repost-btn">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>7</span>
+                        </button>
+                        <button class="action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>156</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other tab content (hidden by default) -->
+            <div class="profile-feed" id="repliesTab" style="display: none;">
+                <div class="empty-state">
+                    <i class="fa-regular fa-comment empty-state-icon"></i>
+                    <h3>No replies yet</h3>
+                    <p>When @Ra_Go__ replies to posts, they'll show up here.</p>
+                </div>
+            </div>
+            
+            <div class="profile-feed" id="mediaTab" style="display: none;">
+                <div class="media-grid">
+                    <img src="https://images.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=2" alt="Media 1">
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=2" alt="Media 2">
+                    <img src="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=2" alt="Media 3">
+                </div>
+            </div>
+            
+            <div class="profile-feed" id="likesTab" style="display: none;">
+                <div class="empty-state">
+                    <i class="fa-regular fa-heart empty-state-icon"></i>
+                    <h3>No likes yet</h3>
+                    <p>When @Ra_Go__ likes posts, they'll show up here.</p>
                 </div>
             </div>
         </section>
@@ -108,32 +240,32 @@
         -->
         <section class="panel right-panel">
             <div class="right-search-bar">
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search Chuggle">
             </div>
             <section class="recommendations">
                 <div class="suggestions-title">You might like</div>
                 <!-- Recommendation cards for users to follow -->
                 <div class="recommendation-card">
-                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" class="recommendation-img" alt="Tech User">
                     <div class="recommendation-info">
-                        <div class="recommendation-name">T User</div>
-                        <div class="recommendation-handle">@tuser</div>
+                        <div class="recommendation-name">Sarah Chen</div>
+                        <div class="recommendation-handle">@sarahchen_dev</div>
                     </div>
                     <button class="follow-btn">Follow</button>
                 </div>
                 <div class="recommendation-card">
-                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" class="recommendation-img" alt="Photo User">
                     <div class="recommendation-info">
-                        <div class="recommendation-name">P User</div>
-                        <div class="recommendation-handle">@puser</div>
+                        <div class="recommendation-name">Marcus Johnson</div>
+                        <div class="recommendation-handle">@marcusphoto</div>
                     </div>
                     <button class="follow-btn">Follow</button>
                 </div>
                 <div class="recommendation-card">
-                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <img src="https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" class="recommendation-img" alt="Writer User">
                     <div class="recommendation-info">
-                        <div class="recommendation-name">L User</div>
-                        <div class="recommendation-handle">@luser</div>
+                        <div class="recommendation-name">Emma Rodriguez</div>
+                        <div class="recommendation-handle">@emmawrites</div>
                     </div>
                     <button class="follow-btn">Follow</button>
                 </div>
