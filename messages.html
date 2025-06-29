@@ -1,263 +1,221 @@
-<!--
-    messages.html
-    -------------
-    This is the messaging page for the Chuggle web app with a Twitter/X-like interface.
-    Features a dark theme with conversation list on the left and full-width chat area on the right.
-    The messaging interface allows users to view conversations, send messages, and manage their direct messages.
-    Styles are loaded from messages.css and Font Awesome icons are used for UI elements.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta and title for responsive design and page info -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages - Chuggle</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Messages-specific styles and icon library -->
     <link rel="stylesheet" href="messages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="messages.js" defer></script>
 </head>
 <body>
-    <main class="main-panels">
-        <!--
-            Left Navigation Panel:
-            Contains navigation buttons for Home, Notifications, Messages, Profile, More.
-            Also shows a compact user profile at the bottom.
-        -->
-        <section class="panel left-panel">
-            <nav class="side-nav">
-                <!-- Navigation links/buttons -->
-                <a href="main.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
-                <button><i class="fa-regular fa-bell"></i> Notifications</button>
-                <a href="messages.html"><button class="active"><i class="fa-regular fa-envelope"></i> Messages</button></a>
-                <a href="profile.html"><button><i class="fa-regular fa-user"></i> Profile</button></a>
-                <button><i class="fa-solid fa-ellipsis"></i> More</button>
-            </nav>
-            <!-- Compact user info at the bottom of the nav -->
-            <div class="side-profile">
-                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=36&h=36&dpr=2" alt="User" class="side-profile-avatar">
-                <div>
-                    <div class="side-profile-name">Rahul Goyal</div>
-                    <div class="side-profile-handle">@Ra_Go__</div>
-                </div>
+    <div class="messages-container">
+        <!-- Left Navigation Panel -->
+        <div class="left-nav">
+            <div class="nav-header">
+                <div class="nav-logo">𝕏</div>
             </div>
-        </section>
+            
+            <div class="nav-menu">
+                <a href="main.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="messages.html" class="nav-item active">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-slash"></i>
+                    <span>Grok</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Communities</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-x"></i>
+                    <span>Premium</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-certificate"></i>
+                    <span>Verified Orgs</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-ellipsis"></i>
+                    <span>More</span>
+                </a>
+            </div>
+            
+            <button class="post-button">Post</button>
+            
+            <div class="nav-profile">
+                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Profile" class="nav-profile-avatar">
+                <div class="nav-profile-info">
+                    <div class="nav-profile-name">Rahul Goyal</div>
+                    <div class="nav-profile-handle">@Ra_Go__</div>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+        </div>
 
-        <!--
-            Center Panel:
-            Contains the messaging interface with conversation list and chat area.
-        -->
-        <section class="panel center-panel">
-            <!-- Messages Header -->
+        <!-- Messages Panel -->
+        <div class="messages-panel">
             <div class="messages-header">
                 <h1 class="messages-title">Messages</h1>
                 <div class="header-actions">
-                    <button class="settings-btn" title="Settings">
+                    <button class="header-btn" title="Settings">
                         <i class="fa-solid fa-gear"></i>
                     </button>
-                    <button class="new-message-btn" id="newMessageBtn" title="New message">
+                    <button class="header-btn" title="New message">
                         <i class="fa-regular fa-envelope"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Search Bar -->
-            <div class="messages-search">
-                <input type="text" placeholder="Search Direct Messages">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search Direct Messages">
             </div>
 
-            <!-- Messages Container -->
-            <div class="messages-container">
-                <!-- Conversation List -->
-                <div class="conversation-list" id="conversationList">
-                    <!-- Message Requests -->
-                    <div class="message-requests">
-                        <i class="fa-regular fa-envelope"></i>
-                        <span>Message requests</span>
-                    </div>
-
-                    <!-- Conversations -->
-                    <div class="conversation-item" data-user="samarth">
-                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Samarth" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">Samarth H.</span>
-                                <span class="conversation-time">Jun 5, 2018</span>
-                            </div>
-                            <div class="conversation-preview">x.com/Funniest_Prank...</div>
+            <div class="conversation-list">
+                <div class="conversation-item" data-user="samarth">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Samarth" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Samarth H.</span>
+                            <span class="conversation-time">Jun 5, 2018</span>
                         </div>
-                    </div>
-
-                    <div class="conversation-item active" data-user="nadeem">
-                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Nadeem" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">Nadeem As...</span>
-                                <span class="conversation-time">Apr 3, 2018</span>
-                            </div>
-                            <div class="conversation-preview">Ok for now I needed volunteers but...</div>
-                        </div>
-                    </div>
-
-                    <div class="conversation-item" data-user="ankur">
-                        <img src="https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Ankur" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">Ankur Jain</span>
-                                <span class="conversation-time">Mar 30, 2018</span>
-                            </div>
-                            <div class="conversation-preview">but don't tell about this to anand, p...</div>
-                        </div>
-                    </div>
-
-                    <div class="conversation-item" data-user="roz">
-                        <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Roz" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">roz ki di...</span>
-                                <span class="conversation-time">Mar 30, 2018</span>
-                            </div>
-                            <div class="conversation-preview">x.com/i/stickers/ima...</div>
-                        </div>
-                    </div>
-
-                    <div class="conversation-item" data-user="biz">
-                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Biz" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">Biz Comm Strat...</span>
-                                <span class="conversation-time">Oct 6, 2017</span>
-                            </div>
-                            <div class="conversation-preview">Are you looking to scale your marke...</div>
-                        </div>
-                    </div>
-
-                    <div class="conversation-item" data-user="evan">
-                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Evan" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">Evan Kirstel #...</span>
-                                <span class="conversation-time">Jun 9, 2017</span>
-                            </div>
-                            <div class="conversation-preview">Sent a link</div>
-                        </div>
-                    </div>
-
-                    <div class="conversation-item" data-user="pheltz">
-                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Pheltz" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-header">
-                                <span class="conversation-name">Pheltz Comic...</span>
-                                <span class="conversation-time">Feb 20, 2017</span>
-                            </div>
-                            <div class="conversation-preview">Hi We are a comic shop thanks for t...</div>
-                        </div>
+                        <div class="conversation-preview">x.com/Funniest_Prank...</div>
                     </div>
                 </div>
 
-                <!-- Chat Area -->
-                <div class="chat-area" id="chatArea">
-                    <!-- Chat Header -->
-                    <div class="chat-header">
-                        <div class="chat-user-info">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" alt="Nadeem" class="chat-avatar" id="chatAvatar">
-                            <div>
-                                <span class="chat-user-name" id="chatUserName">Nadeem Ashraf</span>
-                            </div>
+                <div class="conversation-item active" data-user="nadeem">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Nadeem" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Nadeem As...</span>
+                            <span class="conversation-time">Apr 3, 2018</span>
                         </div>
-                        <button class="chat-options-btn" title="More options">
-                            <i class="fa-solid fa-circle-info"></i>
-                        </button>
-                    </div>
-
-                    <!-- Messages Container -->
-                    <div class="messages-area" id="messagesArea">
-                        <div class="message sent">
-                            <div class="message-content">
-                                <div class="message-text">Ok</div>
-                                <div class="message-time">Mar 30, 2018, 9:39 PM</div>
-                            </div>
-                        </div>
-
-                        <div class="message received">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" alt="Nadeem" class="message-avatar">
-                            <div class="message-content">
-                                <div class="message-text">You still ok with small proof reads now and again bro</div>
-                                <div class="message-time">Apr 3, 2018, 2:03 PM</div>
-                            </div>
-                        </div>
-
-                        <div class="message sent">
-                            <div class="message-content">
-                                <div class="message-text">Sure, but as I am a final year student, I may not be always available</div>
-                                <div class="message-time">2:36 PM</div>
-                            </div>
-                        </div>
-
-                        <div class="message sent">
-                            <div class="message-content">
-                                <div class="message-text">Due to exams, projects, seminars and similar stuff</div>
-                                <div class="message-time">Apr 3, 2018, 2:53 PM</div>
-                            </div>
-                        </div>
-
-                        <div class="message sent">
-                            <div class="message-content">
-                                <div class="message-text">Also, can you help me financially to help support my basic needs.</div>
-                                <div class="message-time">2:56 PM</div>
-                            </div>
-                        </div>
-
-                        <div class="message sent">
-                            <div class="message-content">
-                                <div class="message-text">We can agree to some fixed amount per 500 or 1000 words</div>
-                                <div class="message-time">Apr 3, 2018, 2:56 PM</div>
-                            </div>
-                        </div>
-
-                        <div class="message received">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" alt="Nadeem" class="message-avatar">
-                            <div class="message-content">
-                                <div class="message-text">Ok for now I needed volunteers but thanks anyway</div>
-                                <div class="message-time">Apr 3, 2018, 4:58 PM</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Message Input -->
-                    <div class="message-input-container">
-                        <div class="message-input-area">
-                            <button class="attachment-btn" title="Add media">
-                                <i class="fa-regular fa-image"></i>
-                            </button>
-                            <button class="emoji-btn" title="Add emoji">
-                                <i class="fa-regular fa-face-smile"></i>
-                            </button>
-                            <input type="text" class="message-input" id="messageInput" placeholder="Start a new message">
-                            <button class="send-btn" id="sendBtn" title="Send">
-                                <i class="fa-regular fa-paper-plane"></i>
-                            </button>
-                        </div>
+                        <div class="conversation-preview">Ok for now I needed volunteers but...</div>
                     </div>
                 </div>
 
-                <!-- Empty State (shown when no conversation is selected) -->
-                <div class="empty-state" id="emptyState" style="display: none;">
-                    <div class="empty-state-content">
-                        <i class="fa-regular fa-envelope empty-state-icon"></i>
-                        <h2>Select a message</h2>
-                        <p>Choose from your existing conversations, start a new one, or just keep swimming.</p>
-                        <button class="new-message-btn-large">New message</button>
+                <div class="conversation-item" data-user="ankur">
+                    <img src="https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Ankur" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Ankur Jain</span>
+                            <span class="conversation-time">Mar 30, 2018</span>
+                        </div>
+                        <div class="conversation-preview">but don't tell about this to anand, p...</div>
+                    </div>
+                </div>
+
+                <div class="conversation-item" data-user="roz">
+                    <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Roz" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">roz ki di...</span>
+                            <span class="conversation-time">Mar 30, 2018</span>
+                        </div>
+                        <div class="conversation-preview">x.com/i/stickers/ima...</div>
+                    </div>
+                </div>
+
+                <div class="conversation-item" data-user="biz">
+                    <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Biz" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Biz Comm Strat...</span>
+                            <span class="conversation-time">Oct 6, 2017</span>
+                        </div>
+                        <div class="conversation-preview">Are you looking to scale your marke...</div>
+                    </div>
+                </div>
+
+                <div class="conversation-item" data-user="evan">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Evan" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Evan Kirstel #...</span>
+                            <span class="conversation-time">Jun 9, 2017</span>
+                        </div>
+                        <div class="conversation-preview">Sent a link</div>
+                    </div>
+                </div>
+
+                <div class="conversation-item" data-user="pheltz">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Pheltz" class="conversation-avatar">
+                    <div class="conversation-info">
+                        <div class="conversation-header">
+                            <span class="conversation-name">Pheltz Comic...</span>
+                            <span class="conversation-time">Feb 20, 2017</span>
+                        </div>
+                        <div class="conversation-preview">Hi We are a comic shop thanks for t...</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Right panel is hidden for this design -->
-        <section class="panel right-panel" style="display: none;">
-        </section>
-    </main>
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header">
+                <div class="chat-user-info">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Samarth" class="chat-avatar">
+                    <div class="chat-user-details">
+                        <div class="chat-user-name">Samarth Halyal</div>
+                        <div class="chat-user-handle">@samarth_halyal</div>
+                        <div class="chat-user-bio">Lot of things to describe, meet someday to listen. 😊</div>
+                        <div class="chat-user-meta">Joined April 2018 • 32 Followers</div>
+                        <div class="chat-user-meta">Not followed by anyone you're following</div>
+                    </div>
+                </div>
+                <button class="chat-options" title="Conversation info">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+            </div>
+
+            <div class="messages-area" id="messagesArea">
+                <div class="message sent">
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <a href="https://x.com/Funniest_Prank..." style="color: white; text-decoration: none;">x.com/Funniest_Prank...</a>
+                        </div>
+                        <div class="message-time">Jun 5, 2018, 3:44 PM • Seen</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-input-container">
+                <div class="message-input-wrapper">
+                    <button class="input-btn" title="Add media">
+                        <i class="fa-regular fa-image"></i>
+                    </button>
+                    <button class="input-btn" title="GIF">
+                        <i class="fa-solid fa-square-poll-horizontal"></i>
+                    </button>
+                    <button class="input-btn" title="Emoji">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </button>
+                    <input type="text" class="message-input" placeholder="Start a new message">
+                    <button class="input-btn" title="Send">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
