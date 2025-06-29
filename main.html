@@ -47,9 +47,14 @@
 
         <!--
             Center Panel:
-            Contains the "Create Post" section and the main feed of posts.
+            Contains the search bar, "Create Post" section and the main feed of posts.
         -->
         <section class="panel center-panel">
+            <!-- Search Bar at the top -->
+            <section class="center-search">
+                <input type="text" placeholder="Search Chuggle..." class="center-search-bar">
+            </section>
+
             <!-- Create Post Section -->
             <section class="create-post">
                 <div class="create-post-top">
@@ -193,29 +198,9 @@
         
         <!--
             Right Panel:
-            Contains user recommendations ("SUGGESTIONS") with colored badges.
+            Contains user recommendations ("Who to follow") moved to the top.
         -->
         <section class="panel right-panel">
-            <section class="recommendations">
-                <h3 class="suggestions-title">What's happening</h3>
-                <div class="trending-card">
-                    <div class="trending-category">Trending in Technology</div>
-                    <div class="trending-topic">#WebDevelopment</div>
-                    <div class="trending-posts">42.1K posts</div>
-                </div>
-                <div class="trending-card">
-                    <div class="trending-category">Trending</div>
-                    <div class="trending-topic">#SpaceX</div>
-                    <div class="trending-posts">28.5K posts</div>
-                </div>
-                <div class="trending-card">
-                    <div class="trending-category">Technology · Trending</div>
-                    <div class="trending-topic">JavaScript</div>
-                    <div class="trending-posts">15.2K posts</div>
-                </div>
-                <a href="#" class="show-more">Show more</a>
-            </section>
-            
             <section class="recommendations">
                 <h3 class="suggestions-title">Who to follow</h3>
                 <!-- Recommendation cards with colored borders and badges -->

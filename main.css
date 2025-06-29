@@ -160,13 +160,45 @@ footer {
     padding-bottom: 2rem;
 }
 
+/* Search bar at the top of center panel */
+.center-search {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+}
+
+.center-search-bar {
+    width: 100%;
+    padding: 0.75rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border 0.2s, background 0.2s;
+    box-sizing: border-box;
+}
+
+.center-search-bar:focus {
+    outline: none;
+    border: 1.5px solid var(--accent-primary);
+    background: var(--bg-primary);
+}
+
+.center-search-bar::placeholder {
+    color: var(--text-secondary);
+}
+
 /* Create Post section styles */
 .create-post {
     background: var(--bg-primary);
     border-bottom: 1px solid var(--border-primary);
     padding: 1.2rem 1.5rem 1rem 1.5rem;
     position: sticky;
-    top: 0;
+    top: 80px;
     z-index: 10;
 }
 
@@ -561,6 +593,10 @@ footer {
     .center-panel {
         width: 100%;
         min-width: auto;
+    }
+    
+    .center-search {
+        position: static;
     }
     
     .create-post {
