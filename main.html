@@ -22,21 +22,6 @@
     <script src='main.js' defer></script>
 </head>
 <body>
-    <!--
-        Header:
-        Contains logo placeholder, search bar, and spacer for alignment.
-        Now only spans the center panel width.
-    -->
-    <header>
-        <div class="header-content">
-            <div class="logo-placeholder"></div>
-            <div class="search-bar-container">
-                <input type="text" placeholder="Search Chuggle..." class="search-bar">
-            </div>
-            <div class="header-spacer"></div>
-        </div>
-    </header>
-    
     <main class="main-panels">
         <!--
             Left Navigation Panel:
@@ -66,6 +51,11 @@
             Contains the "Create Post" section and the main feed of posts.
         -->
         <section class="panel center-panel">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="header-title">Home</h1>
+            </div>
+            
             <!-- Create Post Section -->
             <section class="create-post">
                 <div class="create-post-top">

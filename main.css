@@ -19,75 +19,20 @@ body {
 }
 
 /* Header styles - only spans center panel */
-header {
+.header {
     background: var(--bg-primary);
     border-bottom: 1px solid var(--border-primary);
-    padding: 0;
-    position: fixed;
+    padding: 1rem 1.5rem;
+    position: sticky;
     top: 0;
-    z-index: 100;
-    width: 56%;
-    left: 22%;
+    z-index: 10;
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1.5rem;
-    height: 60px;
-}
-
-.logo-placeholder {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
-    display: inline-block;
-    position: relative;
-}
-
-.logo-placeholder::after {
-    content: "C";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.search-bar-container {
-    flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-}
-
-.search-bar {
-    width: 350px;
-    max-width: 90%;
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid var(--border-primary);
-    background: var(--bg-secondary);
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
     color: var(--text-primary);
-    font-size: 1rem;
-    transition: border 0.2s, background 0.2s;
-}
-
-.search-bar:focus {
-    outline: none;
-    border: 1.5px solid var(--accent-primary);
-    background: var(--bg-primary);
-}
-
-.search-bar::placeholder {
-    color: var(--text-secondary);
-}
-
-.header-spacer {
-    flex: 0 0 40px;
 }
 
 /* Footer styles */
@@ -186,10 +131,6 @@ footer {
     color: var(--text-inverse);
 }
 
-.side-nav button:last-child {
-    margin-bottom: 0;
-}
-
 /* Icon styles for navigation */
 .side-nav i {
     font-size: 1.5em;
@@ -234,7 +175,6 @@ footer {
     border-left: 1px solid var(--border-primary);
     min-height: 100vh;
     padding-bottom: 2rem;
-    margin-top: 80px; /* Account for header height */
 }
 
 /* Create Post section styles */
@@ -620,11 +560,6 @@ footer {
     .center-panel {
         width: 60%;
     }
-    
-    header {
-        width: 60%;
-        left: 20%;
-    }
 }
 
 @media (max-width: 768px) {
@@ -643,12 +578,9 @@ footer {
     .center-panel {
         width: 100%;
         min-width: auto;
-        margin-top: 0;
     }
     
-    header {
-        width: 100%;
-        left: 0;
+    .header {
         position: relative;
     }
     
