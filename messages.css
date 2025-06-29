@@ -1,8 +1,8 @@
 /*
     messages.css
     ------------
-    Complete remake of the messaging interface to match Twitter/X design.
-    Features a clean three-panel layout with left navigation, conversation list, and chat area.
+    Stylesheet for messages.html - Twitter/X style messaging interface.
+    Features a clean three-panel layout with proper navigation, conversation list, and chat area.
     Uses modern CSS with automatic light/dark theme switching based on browser preferences.
 */
 
@@ -18,133 +18,121 @@ body {
     overflow: hidden;
 }
 
-/* Main container */
-.messages-container {
+/* Main container - three panel layout */
+.main-panels {
     display: flex;
     height: 100vh;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.panel {
+    box-sizing: border-box;
+}
+
 /* Left Navigation Panel */
-.left-nav {
+.left-panel {
     width: 275px;
     background: var(--bg-primary);
     border-right: 1px solid var(--border-primary);
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
-/* Navigation header */
-.nav-header {
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-primary);
-}
-
-.nav-logo {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: var(--text-primary);
-    margin-bottom: 2rem;
-}
-
-/* Navigation menu */
-.nav-menu {
-    flex: 1;
-    padding: 0 1rem;
-}
-
-.nav-item {
+/* Navigation menu styles */
+.side-nav {
     display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.25rem;
-    border-radius: 999px;
-    color: var(--text-primary);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    width: 100%;
+}
+
+.side-nav a {
     text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.side-nav button {
+    padding: 0.75rem 1rem;
+    border: none;
+    background: none;
+    border-radius: 999px;
     font-size: 1.25rem;
     font-weight: 400;
-    transition: background-color 0.2s;
-}
-
-.nav-item:hover {
-    background: var(--bg-hover);
-}
-
-.nav-item.active {
-    font-weight: 700;
-}
-
-.nav-item i {
-    width: 1.5rem;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-/* Post button */
-.post-button {
-    background: var(--accent-primary);
-    color: white;
-    border: none;
-    border-radius: 999px;
-    padding: 1rem;
-    margin: 1rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.post-button:hover {
-    background: var(--accent-primary-hover);
-}
-
-/* User profile at bottom */
-.nav-profile {
-    padding: 1rem;
+    color: var(--text-primary);
+    text-align: left;
+    width: auto;
+    min-width: fit-content;
+    margin-bottom: 0.2rem;
+    transition: background 0.2s, color 0.2s;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    border-radius: 999px;
-    margin: 1rem;
-    transition: background-color 0.2s;
+    gap: 1.2rem;
     cursor: pointer;
 }
 
-.nav-profile:hover {
+.side-nav button:hover,
+.side-nav button:focus {
     background: var(--bg-hover);
+    color: var(--accent-primary);
+    outline: none;
 }
 
-.nav-profile-avatar {
-    width: 40px;
-    height: 40px;
+.side-nav button.active {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+/* Icon styles for navigation */
+.side-nav i {
+    font-size: 1.5em;
+    width: 1.5em;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Compact user profile at the bottom of the left panel */
+.side-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: auto;
+    padding: 1.5rem 0 0 0;
+    width: 100%;
+}
+
+.side-profile-avatar {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
 }
 
-.nav-profile-info {
-    flex: 1;
-}
-
-.nav-profile-name {
-    font-weight: 700;
-    font-size: 0.95rem;
+.side-profile-name {
+    font-weight: 600;
+    font-size: 1rem;
     color: var(--text-primary);
 }
 
-.nav-profile-handle {
-    font-size: 0.9rem;
+.side-profile-handle {
     color: var(--text-secondary);
+    font-size: 0.95em;
 }
 
 /* Messages Panel */
-.messages-panel {
+.center-panel {
     width: 350px;
     background: var(--bg-primary);
     border-right: 1px solid var(--border-primary);
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Messages header */
@@ -154,6 +142,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--bg-primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .messages-title {
@@ -199,6 +191,7 @@ body {
     font-size: 0.95rem;
     outline: none;
     transition: background-color 0.2s;
+    box-sizing: border-box;
 }
 
 .search-input:focus {
@@ -279,11 +272,12 @@ body {
 }
 
 /* Chat Area */
-.chat-area {
+.right-panel {
     flex: 1;
     background: var(--bg-primary);
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Chat header */
@@ -294,6 +288,9 @@ body {
     align-items: center;
     justify-content: space-between;
     background: var(--bg-primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .chat-user-info {
@@ -303,8 +300,8 @@ body {
 }
 
 .chat-avatar {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
 }
 
@@ -315,12 +312,12 @@ body {
 
 .chat-user-name {
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-primary);
 }
 
 .chat-user-handle {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
 }
 
@@ -471,118 +468,64 @@ body {
     color: var(--text-secondary);
 }
 
-/* Empty state */
-.empty-state {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-primary);
-}
-
-.empty-content {
-    text-align: center;
-    max-width: 320px;
-}
-
-.empty-icon {
-    font-size: 4rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.empty-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-}
-
-.empty-description {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-}
-
-.empty-button {
-    background: var(--accent-primary);
-    color: white;
-    border: none;
-    border-radius: 999px;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.empty-button:hover {
-    background: var(--accent-primary-hover);
-}
-
 /* Responsive design */
 @media (max-width: 1024px) {
-    .messages-container {
+    .main-panels {
         max-width: 100%;
     }
     
-    .left-nav {
+    .left-panel {
         width: 240px;
     }
     
-    .messages-panel {
+    .center-panel {
         width: 320px;
     }
 }
 
 @media (max-width: 768px) {
-    .messages-container {
+    .main-panels {
         flex-direction: column;
     }
     
-    .left-nav {
+    .left-panel {
         width: 100%;
         height: auto;
         flex-direction: row;
         border-right: none;
         border-bottom: 1px solid var(--border-primary);
+        padding: 0.5rem 1rem;
     }
     
-    .nav-header {
-        display: none;
-    }
-    
-    .nav-menu {
-        display: flex;
-        flex: 1;
-        padding: 0.5rem;
+    .side-nav {
+        flex-direction: row;
         justify-content: space-around;
+        flex: 1;
     }
     
-    .nav-item {
+    .side-nav button {
         flex-direction: column;
         gap: 0.25rem;
         padding: 0.5rem;
         font-size: 0.8rem;
     }
     
-    .nav-item i {
+    .side-nav i {
         font-size: 1.25rem;
     }
     
-    .post-button,
-    .nav-profile {
+    .side-profile {
         display: none;
     }
     
-    .messages-panel {
+    .center-panel {
         width: 100%;
         height: 50vh;
         border-right: none;
         border-bottom: 1px solid var(--border-primary);
     }
     
-    .chat-area {
+    .right-panel {
         height: 50vh;
     }
     

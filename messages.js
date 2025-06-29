@@ -1,7 +1,7 @@
 /*
     messages.js
     -----------
-    JavaScript functionality for the completely remade messaging interface.
+    JavaScript functionality for the messaging interface.
     Handles conversation switching, message sending, and user interactions.
     Provides dynamic behavior matching the Twitter/X messaging experience.
 */
@@ -113,7 +113,7 @@ const conversationData = {
 };
 
 // Current active conversation
-let currentConversation = 'samarth';
+let currentConversation = 'nadeem';
 
 // DOM elements
 let conversationItems;

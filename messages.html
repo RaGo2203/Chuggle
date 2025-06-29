@@ -9,70 +9,28 @@
     <script src="messages.js" defer></script>
 </head>
 <body>
-    <div class="messages-container">
+    <main class="main-panels">
         <!-- Left Navigation Panel -->
-        <div class="left-nav">
-            <div class="nav-header">
-                <div class="nav-logo">𝕏</div>
-            </div>
-            
-            <div class="nav-menu">
-                <a href="main.html" class="nav-item">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>Explore</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-regular fa-bell"></i>
-                    <span>Notifications</span>
-                </a>
-                <a href="messages.html" class="nav-item active">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>Messages</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-slash"></i>
-                    <span>Grok</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Communities</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-x"></i>
-                    <span>Premium</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-certificate"></i>
-                    <span>Verified Orgs</span>
-                </a>
-                <a href="profile.html" class="nav-item">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Profile</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <span>More</span>
-                </a>
-            </div>
-            
-            <button class="post-button">Post</button>
-            
-            <div class="nav-profile">
-                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2" alt="Profile" class="nav-profile-avatar">
-                <div class="nav-profile-info">
-                    <div class="nav-profile-name">Rahul Goyal</div>
-                    <div class="nav-profile-handle">@Ra_Go__</div>
+        <section class="panel left-panel">
+            <nav class="side-nav">
+                <a href="main.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
+                <button><i class="fa-regular fa-bell"></i> Notifications</button>
+                <a href="messages.html"><button class="active"><i class="fa-regular fa-envelope"></i> Messages</button></a>
+                <a href="profile.html"><button><i class="fa-regular fa-user"></i> Profile</button></a>
+                <button><i class="fa-solid fa-ellipsis"></i> More</button>
+            </nav>
+            <!-- Compact user info at the bottom of the nav -->
+            <div class="side-profile">
+                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=36&h=36&dpr=2" alt="User" class="side-profile-avatar">
+                <div>
+                    <div class="side-profile-name">Rahul Goyal</div>
+                    <div class="side-profile-handle">@Ra_Go__</div>
                 </div>
-                <i class="fa-solid fa-ellipsis"></i>
             </div>
-        </div>
+        </section>
 
         <!-- Messages Panel -->
-        <div class="messages-panel">
+        <section class="panel center-panel">
             <div class="messages-header">
                 <h1 class="messages-title">Messages</h1>
                 <div class="header-actions">
@@ -167,19 +125,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Chat Area -->
-        <div class="chat-area">
+        <section class="panel right-panel">
             <div class="chat-header">
                 <div class="chat-user-info">
-                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Samarth" class="chat-avatar">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=48&h=48&dpr=2" alt="Nadeem" class="chat-avatar">
                     <div class="chat-user-details">
-                        <div class="chat-user-name">Samarth Halyal</div>
-                        <div class="chat-user-handle">@samarth_halyal</div>
-                        <div class="chat-user-bio">Lot of things to describe, meet someday to listen. 😊</div>
-                        <div class="chat-user-meta">Joined April 2018 • 32 Followers</div>
-                        <div class="chat-user-meta">Not followed by anyone you're following</div>
+                        <div class="chat-user-name">Nadeem Ashraf</div>
+                        <div class="chat-user-handle">@ConveyIn</div>
+                        <div class="chat-user-bio">Digital marketing consultant and content creator</div>
+                        <div class="chat-user-meta">Joined March 2018 • 156 Followers</div>
+                        <div class="chat-user-meta">Followed by 2 people you follow</div>
                     </div>
                 </div>
                 <button class="chat-options" title="Conversation info">
@@ -190,10 +148,52 @@
             <div class="messages-area" id="messagesArea">
                 <div class="message sent">
                     <div class="message-content">
-                        <div class="message-bubble">
-                            <a href="https://x.com/Funniest_Prank..." style="color: white; text-decoration: none;">x.com/Funniest_Prank...</a>
-                        </div>
-                        <div class="message-time">Jun 5, 2018, 3:44 PM • Seen</div>
+                        <div class="message-bubble">Ok</div>
+                        <div class="message-time">Mar 30, 2018, 9:39 PM</div>
+                    </div>
+                </div>
+
+                <div class="message received">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" alt="Nadeem" class="message-avatar">
+                    <div class="message-content">
+                        <div class="message-bubble">You still ok with small proof reads now and again bro</div>
+                        <div class="message-time">Apr 3, 2018, 2:03 PM</div>
+                    </div>
+                </div>
+
+                <div class="message sent">
+                    <div class="message-content">
+                        <div class="message-bubble">Sure, but as I am a final year student, I may not be always available</div>
+                        <div class="message-time">2:36 PM</div>
+                    </div>
+                </div>
+
+                <div class="message sent">
+                    <div class="message-content">
+                        <div class="message-bubble">Due to exams, projects, seminars and similar stuff</div>
+                        <div class="message-time">Apr 3, 2018, 2:53 PM</div>
+                    </div>
+                </div>
+
+                <div class="message sent">
+                    <div class="message-content">
+                        <div class="message-bubble">Also, can you help me financially to help support my basic needs.</div>
+                        <div class="message-time">2:56 PM</div>
+                    </div>
+                </div>
+
+                <div class="message sent">
+                    <div class="message-content">
+                        <div class="message-bubble">We can agree to some fixed amount per 500 or 1000 words</div>
+                        <div class="message-time">Apr 3, 2018, 2:56 PM</div>
+                    </div>
+                </div>
+
+                <div class="message received">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" alt="Nadeem" class="message-avatar">
+                    <div class="message-content">
+                        <div class="message-bubble">Ok for now I needed volunteers but thanks anyway</div>
+                        <div class="message-time">Apr 3, 2018, 4:58 PM</div>
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
