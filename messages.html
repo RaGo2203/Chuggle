@@ -1,0 +1,228 @@
+<!--
+    messages.html
+    -------------
+    This is the messaging page for the Chuggle web app.
+    It displays a three-panel layout: left navigation, center messaging interface with conversation list and chat area, and right recommendations.
+    The messaging interface allows users to view conversations, send messages, and manage their direct messages.
+    Styles are loaded from messages.css and Font Awesome icons are used for UI elements.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and title for responsive design and page info -->
+    <meta charset="UTF-8">
+    <title>Messages - Chuggle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Messages-specific styles and icon library -->
+    <link rel="stylesheet" href="messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="messages.js" defer></script>
+</head>
+<body>
+    <main class="main-panels">
+        <!--
+            Left Navigation Panel:
+            Contains navigation buttons for Home, Notifications, Messages, Profile, More, and Post.
+            Also shows a compact user profile at the bottom.
+        -->
+        <section class="panel left-panel">
+            <nav class="side-nav">
+                <!-- Navigation links/buttons -->
+                <a href="main.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
+                <button><i class="fa-regular fa-bell"></i> Notifications</button>
+                <a href="messages.html"><button class="active"><i class="fa-regular fa-envelope"></i> Messages</button></a>
+                <a href="profile.html"><button><i class="fa-regular fa-user"></i> Profile</button></a>
+                <button><i class="fa-solid fa-ellipsis"></i> More</button>
+                <button class="post-btn"><i class="fa-solid fa-feather"></i> Post</button>
+            </nav>
+            <!-- Compact user info at the bottom of the nav -->
+            <div class="side-profile">
+                <img src="https://via.placeholder.com/36" alt="User" class="side-profile-avatar">
+                <div>
+                    <div class="side-profile-name">Rahul Goyal</div>
+                    <div class="side-profile-handle">@Ra_Go__</div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            Center Panel:
+            Contains the messaging interface with conversation list and chat area.
+        -->
+        <section class="panel center-panel">
+            <!-- Messages Header -->
+            <div class="messages-header">
+                <h1 class="messages-title">Messages</h1>
+                <button class="new-message-btn" id="newMessageBtn">
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="messages-container">
+                <!-- Conversation List -->
+                <div class="conversation-list" id="conversationList">
+                    <div class="conversation-item active" data-user="alice">
+                        <img src="https://via.placeholder.com/48" alt="Alice" class="conversation-avatar">
+                        <div class="conversation-info">
+                            <div class="conversation-header">
+                                <span class="conversation-name">Alice Johnson</span>
+                                <span class="conversation-time">2h</span>
+                            </div>
+                            <div class="conversation-preview">That sounds amazing! When do we start?</div>
+                        </div>
+                        <div class="unread-indicator"></div>
+                    </div>
+
+                    <div class="conversation-item" data-user="bob">
+                        <img src="https://via.placeholder.com/48" alt="Bob" class="conversation-avatar">
+                        <div class="conversation-info">
+                            <div class="conversation-header">
+                                <span class="conversation-name">Bob Smith</span>
+                                <span class="conversation-time">1d</span>
+                            </div>
+                            <div class="conversation-preview">Thanks for sharing that article!</div>
+                        </div>
+                    </div>
+
+                    <div class="conversation-item" data-user="charlie">
+                        <img src="https://via.placeholder.com/48" alt="Charlie" class="conversation-avatar">
+                        <div class="conversation-info">
+                            <div class="conversation-header">
+                                <span class="conversation-name">Charlie Brown</span>
+                                <span class="conversation-time">3d</span>
+                            </div>
+                            <div class="conversation-preview">Let's catch up soon!</div>
+                        </div>
+                        <div class="unread-indicator"></div>
+                    </div>
+
+                    <div class="conversation-item" data-user="diana">
+                        <img src="https://via.placeholder.com/48" alt="Diana" class="conversation-avatar">
+                        <div class="conversation-info">
+                            <div class="conversation-header">
+                                <span class="conversation-name">Diana Prince</span>
+                                <span class="conversation-time">1w</span>
+                            </div>
+                            <div class="conversation-preview">Great meeting you at the conference!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="chat-area" id="chatArea">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="chat-user-info">
+                            <img src="https://via.placeholder.com/40" alt="Alice" class="chat-avatar" id="chatAvatar">
+                            <div>
+                                <div class="chat-user-name" id="chatUserName">Alice Johnson</div>
+                                <div class="chat-user-handle" id="chatUserHandle">@alice</div>
+                            </div>
+                        </div>
+                        <button class="chat-options-btn">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+                    </div>
+
+                    <!-- Messages Container -->
+                    <div class="messages-area" id="messagesArea">
+                        <div class="message received">
+                            <img src="https://via.placeholder.com/32" alt="Alice" class="message-avatar">
+                            <div class="message-content">
+                                <div class="message-text">Hey! How's the project coming along?</div>
+                                <div class="message-time">2:30 PM</div>
+                            </div>
+                        </div>
+
+                        <div class="message sent">
+                            <div class="message-content">
+                                <div class="message-text">Going great! Just finished the main features. Want to see a demo?</div>
+                                <div class="message-time">2:32 PM</div>
+                            </div>
+                        </div>
+
+                        <div class="message received">
+                            <img src="https://via.placeholder.com/32" alt="Alice" class="message-avatar">
+                            <div class="message-content">
+                                <div class="message-text">That sounds amazing! When do we start?</div>
+                                <div class="message-time">2:35 PM</div>
+                            </div>
+                        </div>
+
+                        <div class="message sent">
+                            <div class="message-content">
+                                <div class="message-text">How about tomorrow at 3 PM?</div>
+                                <div class="message-time">2:36 PM</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Input -->
+                    <div class="message-input-container">
+                        <div class="message-input-area">
+                            <button class="attachment-btn">
+                                <i class="fa-regular fa-image"></i>
+                            </button>
+                            <input type="text" class="message-input" id="messageInput" placeholder="Start a new message">
+                            <button class="send-btn" id="sendBtn">
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State (shown when no conversation is selected) -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-state-content">
+                        <i class="fa-regular fa-envelope empty-state-icon"></i>
+                        <h2>Select a message</h2>
+                        <p>Choose from your existing conversations, start a new one, or just keep swimming.</p>
+                        <button class="new-message-btn-large">New message</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            Right Panel:
+            Contains search and user recommendations.
+        -->
+        <section class="panel right-panel">
+            <div class="right-search-bar">
+                <input type="text" placeholder="Search Direct Messages">
+            </div>
+            <section class="recommendations">
+                <div class="suggestions-title">You might like</div>
+                <!-- Recommendation cards for users to message -->
+                <div class="recommendation-card">
+                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">Emma Wilson</div>
+                        <div class="recommendation-handle">@emmaw</div>
+                    </div>
+                    <button class="message-btn">Message</button>
+                </div>
+                <div class="recommendation-card">
+                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">James Miller</div>
+                        <div class="recommendation-handle">@jmiller</div>
+                    </div>
+                    <button class="message-btn">Message</button>
+                </div>
+                <div class="recommendation-card">
+                    <img src="https://via.placeholder.com/40" class="recommendation-img" alt="User">
+                    <div class="recommendation-info">
+                        <div class="recommendation-name">Sarah Davis</div>
+                        <div class="recommendation-handle">@sarahd</div>
+                    </div>
+                    <button class="message-btn">Message</button>
+                </div>
+                <a href="#" class="show-more">Show more</a>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
