@@ -3,8 +3,18 @@
     -------
     JavaScript functionality for the main feed page.
     Handles post creation, feed interactions, character counting, and dynamic content updates.
-    Provides interactive behavior for the main social media interface.
+    Provides interactive behavior for the main social media interface with theme support.
 */
+
+// Import theme system
+if (typeof window !== 'undefined') {
+    // Load theme script if not already loaded
+    if (!window.ChuggleTheme) {
+        const script = document.createElement('script');
+        script.src = 'theme.js';
+        document.head.appendChild(script);
+    }
+}
 
 // DOM elements
 let createPostText;
@@ -25,6 +35,9 @@ function initializeMain() {
     
     // Initialize character count
     updateCharacterCount();
+    
+    // Setup theme-aware components
+    setupThemeAwareComponents();
 }
 
 // Setup all event listeners
@@ -53,6 +66,17 @@ function setupEventListeners() {
     setupSearchFunctionality();
 }
 
+// Setup theme-aware components
+function setupThemeAwareComponents() {
+    // Listen for theme changes
+    if (window.ChuggleTheme) {
+        window.ChuggleTheme.onThemeChange((theme) => {
+            // Update any theme-specific functionality
+            updateNotificationStyles(theme);
+        });
+    }
+}
+
 // Handle post text changes
 function handlePostTextChange() {
     updateCharacterCount();
@@ -79,11 +103,11 @@ function updateCharacterCount() {
         
         // Change color based on remaining characters
         if (remaining < 20) {
-            characterCount.style.color = '#f91880';
+            characterCount.style.color = 'var(--color-error)';
         } else if (remaining < 50) {
-            characterCount.style.color = '#ffad1f';
+            characterCount.style.color = 'var(--color-warning)';
         } else {
-            characterCount.style.color = '#536471';
+            characterCount.style.color = 'var(--text-secondary)';
         }
     }
 }
@@ -107,7 +131,7 @@ function handleCreatePost() {
         handle: '@Ra_Go__',
         time: 'now',
         content: text,
-        avatar: 'https://via.placeholder.com/40'
+        avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2'
     });
 
     // Add to feed
@@ -227,13 +251,13 @@ function handleLikePost(button) {
         // Like the post
         icon.classList.remove('fa-regular');
         icon.classList.add('fa-solid');
-        button.style.color = '#f91880';
+        button.style.color = 'var(--color-like)';
         countSpan.textContent = count + 1;
     } else {
         // Unlike the post
         icon.classList.remove('fa-solid');
         icon.classList.add('fa-regular');
-        button.style.color = '#536471';
+        button.style.color = 'var(--text-secondary)';
         countSpan.textContent = Math.max(0, count - 1);
     }
 }
@@ -244,11 +268,11 @@ function handleRepost(button) {
     let count = parseInt(countSpan.textContent) || 0;
     
     // Toggle repost state
-    if (button.style.color === 'rgb(23, 191, 99)') {
-        button.style.color = '#536471';
+    if (button.style.color === 'var(--color-repost)' || button.style.color === 'rgb(23, 191, 99)') {
+        button.style.color = 'var(--text-secondary)';
         countSpan.textContent = Math.max(0, count - 1);
     } else {
-        button.style.color = '#17bf63';
+        button.style.color = 'var(--color-repost)';
         countSpan.textContent = count + 1;
     }
 }
@@ -300,11 +324,11 @@ function setupNavigationInteractions() {
 function handleFollowUser(button) {
     if (button.textContent === 'Follow') {
         button.textContent = 'Following';
-        button.style.background = '#1da1f2';
+        button.style.background = 'var(--accent-primary)';
         showNotification('Now following user!');
     } else {
         button.textContent = 'Follow';
-        button.style.background = '#0f1419';
+        button.style.background = 'var(--accent-secondary)';
         showNotification('Unfollowed user');
     }
 }
@@ -331,6 +355,12 @@ function handleSearch(query) {
     // In a real app, this would perform the actual search
 }
 
+// Update notification styles based on theme
+function updateNotificationStyles(theme) {
+    // This function can be used to update notification colors based on theme
+    // Currently, notifications use CSS variables which automatically adapt
+}
+
 // Show notification
 function showNotification(message) {
     // Create notification element
@@ -339,13 +369,13 @@ function showNotification(message) {
         position: fixed;
         top: 20px;
         right: 20px;
-        background: #1da1f2;
-        color: white;
+        background: var(--accent-primary);
+        color: var(--text-inverse);
         padding: 1rem 1.5rem;
         border-radius: 8px;
         z-index: 1000;
         font-weight: 500;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 12px var(--shadow-medium);
         transform: translateX(100%);
         transition: transform 0.3s ease;
     `;
@@ -362,7 +392,9 @@ function showNotification(message) {
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
     }, 3000);
 }

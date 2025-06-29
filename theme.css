@@ -1,0 +1,166 @@
+/*
+    theme.css
+    ---------
+    Global theme system for Chuggle web app.
+    Provides automatic light/dark theme switching based on user's browser/OS preference.
+    Uses CSS custom properties (variables) for consistent theming across all pages.
+*/
+
+/* CSS Custom Properties for Light Theme (Default) */
+:root {
+    /* Background colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f9fa;
+    --bg-tertiary: #ffffff;
+    --bg-hover: #f7f9fa;
+    --bg-active: #e8f5fe;
+    
+    /* Text colors */
+    --text-primary: #0f1419;
+    --text-secondary: #536471;
+    --text-tertiary: #71767b;
+    --text-inverse: #ffffff;
+    
+    /* Border colors */
+    --border-primary: #e6ecf0;
+    --border-secondary: #cfd9de;
+    --border-hover: #1da1f2;
+    
+    /* Accent colors */
+    --accent-primary: #1da1f2;
+    --accent-primary-hover: #1991db;
+    --accent-secondary: #0f1419;
+    --accent-secondary-hover: #1da1f2;
+    
+    /* Action colors */
+    --color-like: #f91880;
+    --color-repost: #17bf63;
+    --color-reply: #1da1f2;
+    --color-share: #1da1f2;
+    
+    /* Status colors */
+    --color-success: #17bf63;
+    --color-warning: #ffad1f;
+    --color-error: #f91880;
+    
+    /* Shadow colors */
+    --shadow-light: rgba(0, 0, 0, 0.03);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-heavy: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Theme - Applied when user prefers dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Background colors */
+        --bg-primary: #000000;
+        --bg-secondary: #080808;
+        --bg-tertiary: #202327;
+        --bg-hover: #1d1f23;
+        --bg-active: #1d1f23;
+        
+        /* Text colors */
+        --text-primary: #e7e9ea;
+        --text-secondary: #71767b;
+        --text-tertiary: #536471;
+        --text-inverse: #000000;
+        
+        /* Border colors */
+        --border-primary: #2f3336;
+        --border-secondary: #3e4144;
+        --border-hover: #1d9bf0;
+        
+        /* Accent colors */
+        --accent-primary: #1d9bf0;
+        --accent-primary-hover: #1a8cd8;
+        --accent-secondary: #1d9bf0;
+        --accent-secondary-hover: #1a8cd8;
+        
+        /* Action colors remain the same for consistency */
+        --color-like: #f91880;
+        --color-repost: #17bf63;
+        --color-reply: #1d9bf0;
+        --color-share: #1d9bf0;
+        
+        /* Status colors remain the same */
+        --color-success: #17bf63;
+        --color-warning: #ffad1f;
+        --color-error: #f91880;
+        
+        /* Shadow colors for dark theme */
+        --shadow-light: rgba(255, 255, 255, 0.03);
+        --shadow-medium: rgba(0, 0, 0, 0.5);
+        --shadow-heavy: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Theme transition for smooth switching */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Utility classes for theme-aware components */
+.theme-bg-primary {
+    background-color: var(--bg-primary);
+}
+
+.theme-bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.theme-bg-tertiary {
+    background-color: var(--bg-tertiary);
+}
+
+.theme-text-primary {
+    color: var(--text-primary);
+}
+
+.theme-text-secondary {
+    color: var(--text-secondary);
+}
+
+.theme-border-primary {
+    border-color: var(--border-primary);
+}
+
+/* Manual theme toggle (for future implementation) */
+[data-theme="light"] {
+    /* Light theme variables (same as default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f9fa;
+    --bg-tertiary: #ffffff;
+    --bg-hover: #f7f9fa;
+    --bg-active: #e8f5fe;
+    --text-primary: #0f1419;
+    --text-secondary: #536471;
+    --text-tertiary: #71767b;
+    --text-inverse: #ffffff;
+    --border-primary: #e6ecf0;
+    --border-secondary: #cfd9de;
+    --border-hover: #1da1f2;
+    --accent-primary: #1da1f2;
+    --accent-primary-hover: #1991db;
+    --accent-secondary: #0f1419;
+    --accent-secondary-hover: #1da1f2;
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables */
+    --bg-primary: #000000;
+    --bg-secondary: #080808;
+    --bg-tertiary: #202327;
+    --bg-hover: #1d1f23;
+    --bg-active: #1d1f23;
+    --text-primary: #e7e9ea;
+    --text-secondary: #71767b;
+    --text-tertiary: #536471;
+    --text-inverse: #000000;
+    --border-primary: #2f3336;
+    --border-secondary: #3e4144;
+    --border-hover: #1d9bf0;
+    --accent-primary: #1d9bf0;
+    --accent-primary-hover: #1a8cd8;
+    --accent-secondary: #1d9bf0;
+    --accent-secondary-hover: #1a8cd8;
+}

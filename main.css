@@ -4,21 +4,24 @@
     Stylesheet for main.html.
     Defines the layout and appearance of the main feed page, including header, three main panels (left, center, right),
     navigation, post creation, feed posts, recommendations, and footer.
-    Uses modern CSS (flexbox, custom colors, responsive design).
+    Uses modern CSS (flexbox, custom colors, responsive design) with automatic theme switching.
 */
+
+/* Import theme system */
+@import url('theme.css');
 
 /* Base styles for body and layout */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f7f9fa;
-    color: #0f1419;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 /* Header styles */
 header {
-    background: #fff;
-    border-bottom: 1px solid #e6ecf0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
     padding: 0;
     position: sticky;
     top: 0;
@@ -37,7 +40,7 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
     display: inline-block;
     position: relative;
 }
@@ -64,16 +67,21 @@ header {
     max-width: 90%;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
-    border: 1px solid #e6ecf0;
-    background: #f7f9fa;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     font-size: 1rem;
     transition: border 0.2s, background 0.2s;
 }
 
 .search-bar:focus {
     outline: none;
-    border: 1.5px solid #1da1f2;
-    background: #fff;
+    border: 1.5px solid var(--accent-primary);
+    background: var(--bg-primary);
+}
+
+.search-bar::placeholder {
+    color: var(--text-secondary);
 }
 
 .header-spacer {
@@ -82,11 +90,11 @@ header {
 
 /* Footer styles */
 footer {
-    background: #fff;
-    border-top: 1px solid #e6ecf0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-primary);
     text-align: center;
     padding: 1rem 0;
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-top: 2rem;
 }
@@ -118,8 +126,8 @@ footer {
 .left-panel {
     width: 22%;
     min-width: 200px;
-    background: #fff;
-    border-right: 1px solid #e6ecf0;
+    background: var(--bg-primary);
+    border-right: 1px solid var(--border-primary);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -138,6 +146,13 @@ footer {
     width: 100%;
 }
 
+.side-nav a {
+    text-decoration: none;
+    width: 85%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .side-nav button {
     padding: 0.9rem 2rem 0.9rem 1.2rem;
     border: none;
@@ -145,9 +160,9 @@ footer {
     border-radius: 999px;
     font-size: 1.18rem;
     font-weight: 500;
-    color: #0f1419;
+    color: var(--text-primary);
     text-align: left;
-    width: 85%;
+    width: 100%;
     margin-bottom: 0.2rem;
     transition: background 0.2s, color 0.2s;
     display: flex;
@@ -158,14 +173,14 @@ footer {
 
 .side-nav button:hover,
 .side-nav button:focus {
-    background: #e8f5fe;
-    color: #1da1f2;
+    background: var(--bg-active);
+    color: var(--accent-primary);
     outline: none;
 }
 
 .side-nav button.active {
-    background: #1da1f2;
-    color: #fff;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
 }
 
 .side-nav button:last-child {
@@ -174,8 +189,8 @@ footer {
 
 /* Special styling for the "Post" button */
 .post-btn {
-    background: #0f1419 !important;
-    color: #fff !important;
+    background: var(--accent-secondary) !important;
+    color: var(--text-inverse) !important;
     font-weight: 700 !important;
     margin-top: 1.5rem;
     width: 85%;
@@ -186,13 +201,13 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 0.7rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 4px var(--shadow-light);
 }
 
 .post-btn:hover,
 .post-btn:focus {
-    background: #1da1f2 !important;
-    color: #fff !important;
+    background: var(--accent-primary) !important;
+    color: var(--text-inverse) !important;
 }
 
 /* Icon styles for navigation */
@@ -222,10 +237,11 @@ footer {
 .side-profile-name {
     font-weight: 600;
     font-size: 1rem;
+    color: var(--text-primary);
 }
 
 .side-profile-handle {
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.95em;
 }
 
@@ -233,17 +249,17 @@ footer {
 .center-panel {
     width: 56%;
     min-width: 350px;
-    background: #fff;
-    border-right: 1px solid #e6ecf0;
-    border-left: 1px solid #e6ecf0;
+    background: var(--bg-primary);
+    border-right: 1px solid var(--border-primary);
+    border-left: 1px solid var(--border-primary);
     min-height: 100vh;
     padding-bottom: 2rem;
 }
 
 /* Create Post section styles */
 .create-post {
-    background: #fff;
-    border-bottom: 1px solid #e6ecf0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
     padding: 1.2rem 1.5rem 1rem 1.5rem;
     position: sticky;
     top: 80px;
@@ -270,15 +286,20 @@ footer {
     min-height: 48px;
     padding: 0.7rem 1rem;
     border-radius: 18px;
-    background: #f7f9fa;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     transition: background 0.2s;
     font-family: inherit;
 }
 
 .create-post-text:focus {
-    background: #fff;
-    outline: 1.5px solid #1da1f2;
+    background: var(--bg-primary);
+    outline: 1.5px solid var(--accent-primary);
+}
+
+.create-post-text::placeholder {
+    color: var(--text-secondary);
 }
 
 .create-post-actions {
@@ -299,7 +320,7 @@ footer {
 .create-post-poll-btn {
     font-size: 1.2rem;
     cursor: pointer;
-    color: #1da1f2;
+    color: var(--accent-primary);
     background: none;
     border: none;
     padding: 0.5rem;
@@ -310,7 +331,7 @@ footer {
 .create-post-image-label:hover,
 .create-post-emoji-btn:hover,
 .create-post-poll-btn:hover {
-    background: #e8f5fe;
+    background: var(--bg-active);
 }
 
 .create-post-submit {
@@ -320,13 +341,13 @@ footer {
 }
 
 .character-count {
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
 .create-post-btn {
-    background: #0f1419;
-    color: #fff;
+    background: var(--accent-secondary);
+    color: var(--text-inverse);
     border: none;
     border-radius: 999px;
     padding: 0.5rem 1.5rem;
@@ -337,12 +358,12 @@ footer {
 }
 
 .create-post-btn:hover:not(:disabled) {
-    background: #1da1f2;
-    color: #fff;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
 }
 
 .create-post-btn:disabled {
-    background: #cfd9de;
+    background: var(--border-secondary);
     cursor: not-allowed;
 }
 
@@ -354,14 +375,14 @@ footer {
 }
 
 .feed-post {
-    background: #fff;
-    border-bottom: 1px solid #e6ecf0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
     padding: 1.2rem 1.5rem 1rem 1.5rem;
     transition: background 0.2s;
 }
 
 .feed-post:hover {
-    background: #fafafa;
+    background: var(--bg-hover);
 }
 
 .feed-post-header {
@@ -381,18 +402,18 @@ footer {
 .feed-post-username {
     font-weight: bold;
     margin-right: 0.5rem;
-    color: #0f1419;
+    color: var(--text-primary);
 }
 
 .feed-post-handle {
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.95em;
 }
 
 .feed-post-menu {
     background: none;
     border: none;
-    color: #536471;
+    color: var(--text-secondary);
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
@@ -401,14 +422,14 @@ footer {
 }
 
 .feed-post-menu:hover {
-    background: #e8f5fe;
-    color: #1da1f2;
+    background: var(--bg-active);
+    color: var(--accent-primary);
 }
 
 .feed-post-content {
     margin-bottom: 0.5rem;
     font-size: 1.05rem;
-    color: #0f1419;
+    color: var(--text-primary);
     line-height: 1.4;
 }
 
@@ -417,7 +438,7 @@ footer {
     max-width: 500px;
     border-radius: 18px;
     margin-bottom: 0.5rem;
-    border: 1px solid #e6ecf0;
+    border: 1px solid var(--border-primary);
 }
 
 .feed-post-actions {
@@ -433,7 +454,7 @@ footer {
     gap: 0.5rem;
     background: none;
     border: none;
-    color: #536471;
+    color: var(--text-secondary);
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 999px;
@@ -442,27 +463,27 @@ footer {
 }
 
 .action-btn:hover {
-    background: #f7f9fa;
+    background: var(--bg-hover);
 }
 
 .reply-btn:hover {
-    color: #1da1f2;
-    background: #e8f5fe;
+    color: var(--color-reply);
+    background: var(--bg-active);
 }
 
 .repost-btn:hover {
-    color: #17bf63;
-    background: #e8f7ed;
+    color: var(--color-repost);
+    background: rgba(23, 191, 99, 0.1);
 }
 
 .like-btn:hover {
-    color: #f91880;
-    background: #fce8f3;
+    color: var(--color-like);
+    background: rgba(249, 24, 128, 0.1);
 }
 
 .share-btn:hover {
-    color: #1da1f2;
-    background: #e8f5fe;
+    color: var(--color-share);
+    background: var(--bg-active);
 }
 
 /* Right panel styles */
@@ -491,16 +512,21 @@ footer {
     width: 90%;
     padding: 0.7rem 1.2rem;
     border-radius: 999px;
-    border: 1px solid #e6ecf0;
-    background: #f7f9fa;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     font-size: 1rem;
     transition: border 0.2s, background 0.2s;
 }
 
 .right-search-bar input:focus {
     outline: none;
-    border: 1.5px solid #1da1f2;
-    background: #fff;
+    border: 1.5px solid var(--accent-primary);
+    background: var(--bg-primary);
+}
+
+.right-search-bar input::placeholder {
+    color: var(--text-secondary);
 }
 
 /* Recommendation cards */
@@ -509,15 +535,15 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    background: #fff;
+    background: var(--bg-primary);
     border-radius: 18px;
-    border: 1px solid #e6ecf0;
+    border: 1px solid var(--border-primary);
     overflow: hidden;
 }
 
 .suggestions-title {
     align-self: flex-start;
-    color: #0f1419;
+    color: var(--text-primary);
     font-size: 1.1rem;
     margin: 0;
     letter-spacing: 0.5px;
@@ -534,14 +560,14 @@ footer {
     padding: 0.8rem 1.2rem;
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid #e6ecf0;
+    border-bottom: 1px solid var(--border-primary);
     transition: background 0.2s;
     cursor: pointer;
 }
 
 .trending-card:hover,
 .recommendation-card:hover {
-    background: #f7f9fa;
+    background: var(--bg-hover);
 }
 
 .trending-card:last-child,
@@ -550,20 +576,20 @@ footer {
 }
 
 .trending-category {
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.85rem;
     margin-bottom: 0.2rem;
 }
 
 .trending-topic {
     font-weight: bold;
-    color: #0f1419;
+    color: var(--text-primary);
     font-size: 1rem;
     margin-bottom: 0.2rem;
 }
 
 .trending-posts {
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.85rem;
 }
 
@@ -572,7 +598,7 @@ footer {
     height: 40px;
     border-radius: 50%;
     margin-right: 0.8rem;
-    border: 1px solid #e6ecf0;
+    border: 1px solid var(--border-primary);
 }
 
 .recommendation-info {
@@ -585,19 +611,19 @@ footer {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #0f1419;
+    color: var(--text-primary);
     font-size: 1rem;
     margin-bottom: 0.2rem;
 }
 
 .recommendation-handle {
-    color: #536471;
+    color: var(--text-secondary);
     font-size: 0.9em;
 }
 
 .follow-btn {
-    background: #0f1419;
-    color: #fff;
+    background: var(--accent-secondary);
+    color: var(--text-inverse);
     border: none;
     border-radius: 999px;
     padding: 0.4rem 1rem;
@@ -608,11 +634,11 @@ footer {
 }
 
 .follow-btn:hover {
-    background: #1da1f2;
+    background: var(--accent-primary);
 }
 
 .show-more {
-    color: #1da1f2;
+    color: var(--accent-primary);
     text-decoration: none;
     font-size: 0.95rem;
     padding: 0.8rem 1.2rem;
@@ -623,7 +649,7 @@ footer {
 
 .show-more:hover {
     text-decoration: underline;
-    background: #f7f9fa;
+    background: var(--bg-hover);
 }
 
 /* Responsive design */
