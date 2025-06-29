@@ -83,6 +83,7 @@ body {
     cursor: pointer;
 }
 
+/* Navigation button hover and active states */
 .side-nav button:hover,
 .side-nav button:focus {
     background: var(--bg-hover);
