@@ -39,7 +39,9 @@ body {
     flex-direction: column;
     align-items: flex-end;
     padding-top: 1.5rem;
-    position: relative;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 /* Navigation menu styles */
@@ -51,6 +53,13 @@ body {
     width: 100%;
 }
 
+.side-nav a {
+    text-decoration: none;
+    width: 85%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .side-nav button {
     padding: 0.9rem 2rem 0.9rem 1.2rem;
     border: none;
@@ -60,7 +69,7 @@ body {
     font-weight: 500;
     color: #0f1419;
     text-align: left;
-    width: 85%;
+    width: 100%;
     margin-bottom: 0.2rem;
     transition: background 0.2s, color 0.2s;
     display: flex;
@@ -493,17 +502,19 @@ body {
     width: 22%;
     min-width: 250px;
     background: none;
-    padding-top: 1.5rem;
+    padding: 1.5rem 0 0 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
+    position: sticky;
+    top: 0;
+    height: fit-content;
 }
 
 .right-search-bar {
     width: 100%;
-    padding: 0 0 1.5rem 0;
-    display: flex;
-    justify-content: flex-start;
+    margin-bottom: 1rem;
 }
 
 .right-search-bar input {
@@ -513,7 +524,7 @@ body {
     border: 1px solid #e6ecf0;
     background: #f7f9fa;
     font-size: 1rem;
-    transition: border 0.2s;
+    transition: border 0.2s, background 0.2s;
 }
 
 .right-search-bar input:focus {
@@ -528,39 +539,48 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    gap: 1.2rem;
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #e6ecf0;
+    overflow: hidden;
 }
 
 .suggestions-title {
-    align-self: flex-start;
     color: #0f1419;
     font-size: 1.1rem;
-    margin: 0 0 0.7rem 0;
-    letter-spacing: 1px;
+    margin: 0;
+    letter-spacing: 0.5px;
     font-weight: 700;
+    padding: 1rem 1.2rem 0.5rem 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .recommendation-card {
     display: flex;
     align-items: center;
-    background: #fff;
-    border-radius: 18px;
-    margin-bottom: 0.7rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-    overflow: hidden;
-    padding: 0.7rem 1rem 0.7rem 0.7rem;
+    padding: 0.8rem 1.2rem;
     width: 100%;
-    min-width: 220px;
-    border: 1px solid #e6ecf0;
-    gap: 0.8rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e6ecf0;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.recommendation-card:hover {
+    background: #f7f9fa;
+}
+
+.recommendation-card:last-child {
+    border-bottom: none;
 }
 
 .recommendation-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #e6ecf0;
-    background: #f7f9fa;
+    margin-right: 0.8rem;
+    border: 1px solid #e6ecf0;
 }
 
 .recommendation-info {
@@ -574,13 +594,13 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     color: #0f1419;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
 }
 
 .recommendation-handle {
     color: #536471;
-    font-size: 0.95em;
-    margin-top: 2px;
+    font-size: 0.9em;
 }
 
 .message-btn {
@@ -588,8 +608,8 @@ body {
     color: #fff;
     border: none;
     border-radius: 999px;
-    padding: 0.5rem 1.2rem;
-    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
@@ -602,16 +622,35 @@ body {
 .show-more {
     color: #1da1f2;
     text-decoration: none;
-    font-size: 1rem;
-    margin-left: 0.2rem;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
     font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .show-more:hover {
     text-decoration: underline;
+    background: #f7f9fa;
 }
 
 /* Responsive design */
+@media (max-width: 1024px) {
+    .main-panels {
+        max-width: 100%;
+    }
+    
+    .left-panel,
+    .right-panel {
+        width: 20%;
+        min-width: 180px;
+    }
+    
+    .center-panel {
+        width: 60%;
+    }
+}
+
 @media (max-width: 768px) {
     .main-panels {
         flex-direction: column;
@@ -621,6 +660,8 @@ body {
     .right-panel {
         width: 100%;
         min-width: auto;
+        position: static;
+        height: auto;
     }
     
     .center-panel {
@@ -640,5 +681,25 @@ body {
     
     .message {
         max-width: 85%;
+    }
+    
+    .side-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+    
+    .side-nav button {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .post-btn {
+        display: none;
+    }
+    
+    .side-profile {
+        display: none;
     }
 }

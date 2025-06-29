@@ -11,44 +11,44 @@ const conversationData = {
     alice: {
         name: "Alice Johnson",
         handle: "@alice",
-        avatar: "https://via.placeholder.com/40",
+        avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
         messages: [
-            { type: "received", text: "Hey! How's the project coming along?", time: "2:30 PM", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "Hey! How's the project coming along?", time: "2:30 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Going great! Just finished the main features. Want to see a demo?", time: "2:32 PM" },
-            { type: "received", text: "That sounds amazing! When do we start?", time: "2:35 PM", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "That sounds amazing! When do we start?", time: "2:35 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "How about tomorrow at 3 PM?", time: "2:36 PM" }
         ]
     },
     bob: {
         name: "Bob Smith",
         handle: "@bob",
-        avatar: "https://via.placeholder.com/40",
+        avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
         messages: [
-            { type: "received", text: "Did you see the latest update on the project?", time: "Yesterday", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "Did you see the latest update on the project?", time: "Yesterday", avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Yes! The new features look incredible.", time: "Yesterday" },
-            { type: "received", text: "Thanks for sharing that article!", time: "Yesterday", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "Thanks for sharing that article!", time: "Yesterday", avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "No problem! Thought you'd find it interesting.", time: "Yesterday" }
         ]
     },
     charlie: {
         name: "Charlie Brown",
         handle: "@charlie",
-        avatar: "https://via.placeholder.com/40",
+        avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
         messages: [
-            { type: "received", text: "Hey there! How have you been?", time: "3 days ago", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "Hey there! How have you been?", time: "3 days ago", avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "I've been great! Working on some exciting projects.", time: "3 days ago" },
-            { type: "received", text: "Let's catch up soon!", time: "3 days ago", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "Let's catch up soon!", time: "3 days ago", avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Absolutely! Let me know when you're free.", time: "3 days ago" }
         ]
     },
     diana: {
         name: "Diana Prince",
         handle: "@diana",
-        avatar: "https://via.placeholder.com/40",
+        avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=2",
         messages: [
-            { type: "received", text: "It was wonderful meeting you at the conference!", time: "1 week ago", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "It was wonderful meeting you at the conference!", time: "1 week ago", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Likewise! Your presentation was fantastic.", time: "1 week ago" },
-            { type: "received", text: "Great meeting you at the conference!", time: "1 week ago", avatar: "https://via.placeholder.com/32" },
+            { type: "received", text: "Great meeting you at the conference!", time: "1 week ago", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Thank you! Looking forward to collaborating.", time: "1 week ago" }
         ]
     }
@@ -100,18 +100,25 @@ function setupEventListeners() {
     });
 
     // Send message functionality
-    sendBtn.addEventListener('click', sendMessage);
-    messageInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
+    if (sendBtn) {
+        sendBtn.addEventListener('click', sendMessage);
+    }
+    
+    if (messageInput) {
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
 
     // New message button
     const newMessageBtn = document.getElementById('newMessageBtn');
-    newMessageBtn.addEventListener('click', () => {
-        alert('New message functionality would open a user search dialog');
-    });
+    if (newMessageBtn) {
+        newMessageBtn.addEventListener('click', () => {
+            showNotification('New message functionality would open a user search dialog');
+        });
+    }
 
     // Message buttons in recommendations
     const messageBtns = document.querySelectorAll('.message-btn');
@@ -120,14 +127,16 @@ function setupEventListeners() {
             e.preventDefault();
             const card = btn.closest('.recommendation-card');
             const userName = card.querySelector('.recommendation-name').textContent;
-            alert(`Starting conversation with ${userName}...`);
+            showNotification(`Starting conversation with ${userName}...`);
         });
     });
 
     // Auto-resize message input
-    messageInput.addEventListener('input', () => {
-        // Auto-expand textarea functionality could be added here
-    });
+    if (messageInput) {
+        messageInput.addEventListener('input', () => {
+            // Auto-expand textarea functionality could be added here
+        });
+    }
 }
 
 // Switch between conversations
@@ -155,8 +164,8 @@ function switchConversation(userId) {
     loadConversation(userId);
     
     // Show chat area, hide empty state
-    chatArea.style.display = 'flex';
-    emptyState.style.display = 'none';
+    if (chatArea) chatArea.style.display = 'flex';
+    if (emptyState) emptyState.style.display = 'none';
 }
 
 // Load conversation messages
@@ -165,12 +174,12 @@ function loadConversation(userId) {
     if (!conversation) return;
 
     // Update chat header
-    chatAvatar.src = conversation.avatar;
-    chatUserName.textContent = conversation.name;
-    chatUserHandle.textContent = conversation.handle;
+    if (chatAvatar) chatAvatar.src = conversation.avatar;
+    if (chatUserName) chatUserName.textContent = conversation.name;
+    if (chatUserHandle) chatUserHandle.textContent = conversation.handle;
 
     // Clear existing messages
-    messagesArea.innerHTML = '';
+    if (messagesArea) messagesArea.innerHTML = '';
 
     // Add messages
     conversation.messages.forEach(message => {
@@ -183,6 +192,8 @@ function loadConversation(userId) {
 
 // Add message to chat area
 function addMessageToChat(message) {
+    if (!messagesArea) return;
+    
     const messageElement = document.createElement('div');
     messageElement.className = `message ${message.type}`;
 
@@ -211,6 +222,8 @@ function addMessageToChat(message) {
 
 // Send a new message
 function sendMessage() {
+    if (!messageInput) return;
+    
     const text = messageInput.value.trim();
     if (!text) return;
 
@@ -277,7 +290,7 @@ function simulateResponse() {
             type: 'received',
             text: randomResponse,
             time: getCurrentTime(),
-            avatar: conversation.avatar
+            avatar: conversation.avatar.replace('w=40&h=40', 'w=32&h=32')
         };
 
         // Add to conversation data
@@ -291,9 +304,6 @@ function simulateResponse() {
 
         // Update conversation preview
         updateConversationPreview(currentConversation, randomResponse);
-
-        // Add unread indicator if not currently viewing this conversation
-        // (In this demo, we're always viewing the active conversation)
     }
 }
 
@@ -305,7 +315,47 @@ function getCurrentTime() {
 
 // Scroll messages area to bottom
 function scrollToBottom() {
-    messagesArea.scrollTop = messagesArea.scrollHeight;
+    if (messagesArea) {
+        messagesArea.scrollTop = messagesArea.scrollHeight;
+    }
+}
+
+// Show notification
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #1da1f2;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        z-index: 1000;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
 }
 
 // Handle typing indicators (placeholder for future implementation)
@@ -336,5 +386,6 @@ window.ChuggleMessaging = {
     sendMessage,
     loadConversation,
     updateOnlineStatus,
-    searchMessages
+    searchMessages,
+    showNotification
 };
