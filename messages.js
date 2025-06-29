@@ -8,52 +8,18 @@
 
 // Sample conversation data
 const conversationData = {
-    alice: {
-        name: "Alice Johnson",
-        handle: "@alice",
+    nadeem: {
+        name: "Nadeem Ashraf",
+        handle: "@ConveyIn",
         avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
         messages: [
-            { type: "received", text: "Hey! How's the project coming along?", time: "Mar 30, 2018, 9:39 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "Ok", time: "2:32 PM" },
+            { type: "sent", text: "Ok", time: "Mar 30, 2018, 9:39 PM" },
             { type: "received", text: "You still ok with small proof reads now and again bro", time: "Apr 3, 2018, 2:03 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Sure, but as I am a final year student, I may not be always available", time: "2:36 PM" },
             { type: "sent", text: "Due to exams, projects, seminars and similar stuff", time: "Apr 3, 2018, 2:53 PM" },
             { type: "sent", text: "Also, can you help me financially to help support my basic needs.", time: "2:56 PM" },
             { type: "sent", text: "We can agree to some fixed amount per 500 or 1000 words", time: "Apr 3, 2018, 2:56 PM" },
             { type: "received", text: "Ok for now I needed volunteers but thanks anyway", time: "Apr 3, 2018, 4:58 PM", avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" }
-        ]
-    },
-    bob: {
-        name: "Bob Smith",
-        handle: "@bob",
-        avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
-        messages: [
-            { type: "received", text: "Did you see the latest update on the project?", time: "Yesterday", avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "Yes! The new features look incredible.", time: "Yesterday" },
-            { type: "received", text: "Thanks for sharing that article!", time: "Yesterday", avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "No problem! Thought you'd find it interesting.", time: "Yesterday" }
-        ]
-    },
-    charlie: {
-        name: "Charlie Brown",
-        handle: "@charlie",
-        avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
-        messages: [
-            { type: "received", text: "Hey there! How have you been?", time: "3 days ago", avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "I've been great! Working on some exciting projects.", time: "3 days ago" },
-            { type: "received", text: "Let's catch up soon!", time: "3 days ago", avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "Absolutely! Let me know when you're free.", time: "3 days ago" }
-        ]
-    },
-    diana: {
-        name: "Diana Prince",
-        handle: "@diana",
-        avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
-        messages: [
-            { type: "received", text: "It was wonderful meeting you at the conference!", time: "1 week ago", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "Likewise! Your presentation was fantastic.", time: "1 week ago" },
-            { type: "received", text: "Great meeting you at the conference!", time: "1 week ago", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
-            { type: "sent", text: "Thank you! Looking forward to collaborating.", time: "1 week ago" }
         ]
     },
     samarth: {
@@ -75,11 +41,48 @@ const conversationData = {
             { type: "received", text: "but don't tell about this to anand, please keep it between us", time: "Mar 30, 2018", avatar: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
             { type: "sent", text: "Sure, I'll keep it confidential. What's up?", time: "Mar 30, 2018" }
         ]
+    },
+    roz: {
+        name: "roz ki di...",
+        handle: "@idekwhybu",
+        avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
+        messages: [
+            { type: "received", text: "Check out these stickers!", time: "Mar 30, 2018", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "received", text: "x.com/i/stickers/ima...", time: "Mar 30, 2018", avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Those are cool! Where did you find them?", time: "Mar 30, 2018" }
+        ]
+    },
+    biz: {
+        name: "Biz Comm Strat...",
+        handle: "@BCs",
+        avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
+        messages: [
+            { type: "received", text: "Are you looking to scale your marketing efforts?", time: "Oct 6, 2017", avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Thanks for reaching out, but I'm not interested at the moment.", time: "Oct 6, 2017" }
+        ]
+    },
+    evan: {
+        name: "Evan Kirstel #...",
+        handle: "@Eva",
+        avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
+        messages: [
+            { type: "received", text: "Sent a link", time: "Jun 9, 2017", avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "Thanks for the link!", time: "Jun 9, 2017" }
+        ]
+    },
+    pheltz: {
+        name: "Pheltz Comic...",
+        handle: "@pheltz",
+        avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2",
+        messages: [
+            { type: "received", text: "Hi We are a comic shop thanks for the follow!", time: "Feb 20, 2017", avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&dpr=2" },
+            { type: "sent", text: "You're welcome! Love supporting local businesses.", time: "Feb 20, 2017" }
+        ]
     }
 };
 
 // Current active conversation
-let currentConversation = 'alice';
+let currentConversation = 'nadeem';
 
 // DOM elements
 let conversationList;

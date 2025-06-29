@@ -136,7 +136,6 @@ body {
     width: 78%;
     min-width: 600px;
     background: var(--bg-primary);
-    border-right: 1px solid var(--border-primary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -149,8 +148,7 @@ body {
     justify-content: space-between;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--border-primary);
-    background: rgba(var(--bg-primary), 0.8);
-    backdrop-filter: blur(12px);
+    background: var(--bg-primary);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -225,6 +223,7 @@ body {
     border-right: 1px solid var(--border-primary);
     overflow-y: auto;
     max-height: calc(100vh - 140px);
+    background: var(--bg-primary);
 }
 
 .conversation-item {
@@ -336,8 +335,7 @@ body {
     justify-content: space-between;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--border-primary);
-    background: rgba(var(--bg-primary), 0.8);
-    backdrop-filter: blur(12px);
+    background: var(--bg-primary);
     position: sticky;
     top: 0;
     z-index: 5;
