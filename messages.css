@@ -33,7 +33,7 @@ body {
     background: none;
 }
 
-/* Left navigation panel styles */
+/* Left navigation panel styles - extends to top */
 .left-panel {
     width: 22%;
     min-width: 200px;
@@ -41,8 +41,8 @@ body {
     border-right: 1px solid var(--border-primary);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding-top: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem 0 1.5rem 1.5rem;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -52,36 +52,38 @@ body {
 .side-nav {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
+    align-items: flex-start;
+    gap: 0.2rem;
     width: 100%;
 }
 
 .side-nav a {
     text-decoration: none;
-    width: 85%;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .side-nav button {
-    padding: 0.9rem 2rem 0.9rem 1.2rem;
+    padding: 0.75rem 1rem;
     border: none;
     background: none;
     border-radius: 999px;
-    font-size: 1.18rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 400;
     color: var(--text-primary);
     text-align: left;
-    width: 100%;
+    width: auto;
+    min-width: fit-content;
     margin-bottom: 0.2rem;
     transition: background 0.2s, color 0.2s;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     cursor: pointer;
 }
 
+/* Navigation button hover and active states */
 .side-nav button:hover,
 .side-nav button:focus {
     background: var(--bg-hover);
@@ -96,10 +98,10 @@ body {
 
 /* Icon styles for navigation */
 .side-nav i {
-    font-size: 1.3em;
-    margin-right: 1.1em;
+    font-size: 1.5em;
     width: 1.5em;
     text-align: center;
+    flex-shrink: 0;
 }
 
 /* Compact user profile at the bottom of the left panel */
@@ -108,7 +110,7 @@ body {
     align-items: center;
     gap: 0.7rem;
     margin-top: auto;
-    padding: 1.5rem 1.5rem 1.5rem 0;
+    padding: 1.5rem 0 0 0;
     width: 100%;
 }
 
